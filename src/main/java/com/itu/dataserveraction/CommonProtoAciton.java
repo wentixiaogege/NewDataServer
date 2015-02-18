@@ -37,7 +37,7 @@ public abstract class CommonProtoAciton<T extends Message, V extends Message> ex
 	 */
 	@GET
 	@Consumes(ITUMediaType.APPLICATION_PROTOBUF)
-	public Response doGet(T t) {
+	public Response doGet() {
 		logger.debug("do get is starting");
 		V result = cmpLogic.executeAction(t);
 		return ResponseResult(result);

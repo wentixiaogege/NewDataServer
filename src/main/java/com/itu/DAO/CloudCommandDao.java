@@ -19,11 +19,11 @@ public class CloudCommandDao {
 	private static Session s = null;
 	private static SessionFactory factory = HibernateUtil.getSessionFactory();
 
-	public static boolean addNewCommand(CloudCommand cmd) {
+	public  static <T> boolean addNewCommand(T cmd) {
 		logger.debug("addNewCommand begin..");
 		// using enum or using data access
 		Command tmpcmd = null;
-		cmd.setId(0);
+//		cmd.setId(0);
 		try {
 			s = factory.openSession();
 			Transaction tran = s.beginTransaction();// 开始事物

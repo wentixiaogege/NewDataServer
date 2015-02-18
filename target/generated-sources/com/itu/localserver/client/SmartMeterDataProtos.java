@@ -8,10 +8,10 @@ public final class SmartMeterDataProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface SmartMeterOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SmartMeterOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SmartMeter)
+      com.google.protobuf.MessageOrBuilder {
 
-    // optional int32 id = 1;
     /**
      * <code>optional int32 id = 1;</code>
      */
@@ -21,7 +21,6 @@ public final class SmartMeterDataProtos {
      */
     int getId();
 
-    // optional int32 sm_index = 2;
     /**
      * <code>optional int32 sm_index = 2;</code>
      */
@@ -31,7 +30,6 @@ public final class SmartMeterDataProtos {
      */
     int getSmIndex();
 
-    // optional string ieeeAddress = 3;
     /**
      * <code>optional string ieeeAddress = 3;</code>
      */
@@ -46,7 +44,6 @@ public final class SmartMeterDataProtos {
     com.google.protobuf.ByteString
         getIeeeAddressBytes();
 
-    // optional string timestamp = 4;
     /**
      * <code>optional string timestamp = 4;</code>
      */
@@ -61,7 +58,6 @@ public final class SmartMeterDataProtos {
     com.google.protobuf.ByteString
         getTimestampBytes();
 
-    // optional int32 rms_V1 = 5;
     /**
      * <code>optional int32 rms_V1 = 5;</code>
      */
@@ -71,7 +67,6 @@ public final class SmartMeterDataProtos {
      */
     int getRmsV1();
 
-    // optional float rms_I1 = 6;
     /**
      * <code>optional float rms_I1 = 6;</code>
      */
@@ -81,7 +76,6 @@ public final class SmartMeterDataProtos {
      */
     float getRmsI1();
 
-    // optional int32 rms_V2 = 7;
     /**
      * <code>optional int32 rms_V2 = 7;</code>
      */
@@ -91,7 +85,6 @@ public final class SmartMeterDataProtos {
      */
     int getRmsV2();
 
-    // optional float rms_I2 = 8;
     /**
      * <code>optional float rms_I2 = 8;</code>
      */
@@ -101,7 +94,6 @@ public final class SmartMeterDataProtos {
      */
     float getRmsI2();
 
-    // optional int32 rms_V3 = 9;
     /**
      * <code>optional int32 rms_V3 = 9;</code>
      */
@@ -111,7 +103,6 @@ public final class SmartMeterDataProtos {
      */
     int getRmsV3();
 
-    // optional float rms_I3 = 10;
     /**
      * <code>optional float rms_I3 = 10;</code>
      */
@@ -121,7 +112,6 @@ public final class SmartMeterDataProtos {
      */
     float getRmsI3();
 
-    // optional float power = 11;
     /**
      * <code>optional float power = 11;</code>
      */
@@ -131,7 +121,6 @@ public final class SmartMeterDataProtos {
      */
     float getPower();
 
-    // optional float accumulated_energy = 12;
     /**
      * <code>optional float accumulated_energy = 12;</code>
      */
@@ -141,7 +130,6 @@ public final class SmartMeterDataProtos {
      */
     float getAccumulatedEnergy();
 
-    // optional int32 status = 13;
     /**
      * <code>optional int32 status = 13;</code>
      */
@@ -151,7 +139,6 @@ public final class SmartMeterDataProtos {
      */
     int getStatus();
 
-    // optional int32 theta_1 = 17;
     /**
      * <code>optional int32 theta_1 = 17;</code>
      */
@@ -161,7 +148,6 @@ public final class SmartMeterDataProtos {
      */
     int getTheta1();
 
-    // optional int32 mag_V1 = 18;
     /**
      * <code>optional int32 mag_V1 = 18;</code>
      */
@@ -171,7 +157,6 @@ public final class SmartMeterDataProtos {
      */
     int getMagV1();
 
-    // optional int32 mag_I1 = 19;
     /**
      * <code>optional int32 mag_I1 = 19;</code>
      */
@@ -181,7 +166,6 @@ public final class SmartMeterDataProtos {
      */
     int getMagI1();
 
-    // optional int32 theta_2 = 20;
     /**
      * <code>optional int32 theta_2 = 20;</code>
      */
@@ -191,7 +175,6 @@ public final class SmartMeterDataProtos {
      */
     int getTheta2();
 
-    // optional int32 mag_V2 = 21;
     /**
      * <code>optional int32 mag_V2 = 21;</code>
      */
@@ -201,7 +184,6 @@ public final class SmartMeterDataProtos {
      */
     int getMagV2();
 
-    // optional int32 mag_I2 = 22;
     /**
      * <code>optional int32 mag_I2 = 22;</code>
      */
@@ -211,7 +193,6 @@ public final class SmartMeterDataProtos {
      */
     int getMagI2();
 
-    // optional int32 theta_3 = 23;
     /**
      * <code>optional int32 theta_3 = 23;</code>
      */
@@ -221,7 +202,6 @@ public final class SmartMeterDataProtos {
      */
     int getTheta3();
 
-    // optional int32 mag_V3 = 24;
     /**
      * <code>optional int32 mag_V3 = 24;</code>
      */
@@ -231,7 +211,6 @@ public final class SmartMeterDataProtos {
      */
     int getMagV3();
 
-    // optional int32 mag_I3 = 25;
     /**
      * <code>optional int32 mag_I3 = 25;</code>
      */
@@ -241,7 +220,6 @@ public final class SmartMeterDataProtos {
      */
     int getMagI3();
 
-    // optional int32 sm_V = 26;
     /**
      * <code>optional int32 sm_V = 26;</code>
      */
@@ -251,7 +229,6 @@ public final class SmartMeterDataProtos {
      */
     int getSmV();
 
-    // optional int32 sm_I = 27;
     /**
      * <code>optional int32 sm_I = 27;</code>
      */
@@ -265,8 +242,9 @@ public final class SmartMeterDataProtos {
    * Protobuf type {@code SmartMeter}
    */
   public static final class SmartMeter extends
-      com.google.protobuf.GeneratedMessage
-      implements SmartMeterOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:SmartMeter)
+      SmartMeterOrBuilder {
     // Use SmartMeter.newBuilder() to construct.
     private SmartMeter(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -323,13 +301,15 @@ public final class SmartMeterDataProtos {
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              ieeeAddress_ = input.readBytes();
+              ieeeAddress_ = bs;
               break;
             }
             case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000008;
-              timestamp_ = input.readBytes();
+              timestamp_ = bs;
               break;
             }
             case 40: {
@@ -472,7 +452,6 @@ public final class SmartMeterDataProtos {
     }
 
     private int bitField0_;
-    // optional int32 id = 1;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
@@ -488,7 +467,6 @@ public final class SmartMeterDataProtos {
       return id_;
     }
 
-    // optional int32 sm_index = 2;
     public static final int SM_INDEX_FIELD_NUMBER = 2;
     private int smIndex_;
     /**
@@ -504,7 +482,6 @@ public final class SmartMeterDataProtos {
       return smIndex_;
     }
 
-    // optional string ieeeAddress = 3;
     public static final int IEEEADDRESS_FIELD_NUMBER = 3;
     private java.lang.Object ieeeAddress_;
     /**
@@ -547,7 +524,6 @@ public final class SmartMeterDataProtos {
       }
     }
 
-    // optional string timestamp = 4;
     public static final int TIMESTAMP_FIELD_NUMBER = 4;
     private java.lang.Object timestamp_;
     /**
@@ -590,7 +566,6 @@ public final class SmartMeterDataProtos {
       }
     }
 
-    // optional int32 rms_V1 = 5;
     public static final int RMS_V1_FIELD_NUMBER = 5;
     private int rmsV1_;
     /**
@@ -606,7 +581,6 @@ public final class SmartMeterDataProtos {
       return rmsV1_;
     }
 
-    // optional float rms_I1 = 6;
     public static final int RMS_I1_FIELD_NUMBER = 6;
     private float rmsI1_;
     /**
@@ -622,7 +596,6 @@ public final class SmartMeterDataProtos {
       return rmsI1_;
     }
 
-    // optional int32 rms_V2 = 7;
     public static final int RMS_V2_FIELD_NUMBER = 7;
     private int rmsV2_;
     /**
@@ -638,7 +611,6 @@ public final class SmartMeterDataProtos {
       return rmsV2_;
     }
 
-    // optional float rms_I2 = 8;
     public static final int RMS_I2_FIELD_NUMBER = 8;
     private float rmsI2_;
     /**
@@ -654,7 +626,6 @@ public final class SmartMeterDataProtos {
       return rmsI2_;
     }
 
-    // optional int32 rms_V3 = 9;
     public static final int RMS_V3_FIELD_NUMBER = 9;
     private int rmsV3_;
     /**
@@ -670,7 +641,6 @@ public final class SmartMeterDataProtos {
       return rmsV3_;
     }
 
-    // optional float rms_I3 = 10;
     public static final int RMS_I3_FIELD_NUMBER = 10;
     private float rmsI3_;
     /**
@@ -686,7 +656,6 @@ public final class SmartMeterDataProtos {
       return rmsI3_;
     }
 
-    // optional float power = 11;
     public static final int POWER_FIELD_NUMBER = 11;
     private float power_;
     /**
@@ -702,7 +671,6 @@ public final class SmartMeterDataProtos {
       return power_;
     }
 
-    // optional float accumulated_energy = 12;
     public static final int ACCUMULATED_ENERGY_FIELD_NUMBER = 12;
     private float accumulatedEnergy_;
     /**
@@ -718,7 +686,6 @@ public final class SmartMeterDataProtos {
       return accumulatedEnergy_;
     }
 
-    // optional int32 status = 13;
     public static final int STATUS_FIELD_NUMBER = 13;
     private int status_;
     /**
@@ -734,7 +701,6 @@ public final class SmartMeterDataProtos {
       return status_;
     }
 
-    // optional int32 theta_1 = 17;
     public static final int THETA_1_FIELD_NUMBER = 17;
     private int theta1_;
     /**
@@ -750,7 +716,6 @@ public final class SmartMeterDataProtos {
       return theta1_;
     }
 
-    // optional int32 mag_V1 = 18;
     public static final int MAG_V1_FIELD_NUMBER = 18;
     private int magV1_;
     /**
@@ -766,7 +731,6 @@ public final class SmartMeterDataProtos {
       return magV1_;
     }
 
-    // optional int32 mag_I1 = 19;
     public static final int MAG_I1_FIELD_NUMBER = 19;
     private int magI1_;
     /**
@@ -782,7 +746,6 @@ public final class SmartMeterDataProtos {
       return magI1_;
     }
 
-    // optional int32 theta_2 = 20;
     public static final int THETA_2_FIELD_NUMBER = 20;
     private int theta2_;
     /**
@@ -798,7 +761,6 @@ public final class SmartMeterDataProtos {
       return theta2_;
     }
 
-    // optional int32 mag_V2 = 21;
     public static final int MAG_V2_FIELD_NUMBER = 21;
     private int magV2_;
     /**
@@ -814,7 +776,6 @@ public final class SmartMeterDataProtos {
       return magV2_;
     }
 
-    // optional int32 mag_I2 = 22;
     public static final int MAG_I2_FIELD_NUMBER = 22;
     private int magI2_;
     /**
@@ -830,7 +791,6 @@ public final class SmartMeterDataProtos {
       return magI2_;
     }
 
-    // optional int32 theta_3 = 23;
     public static final int THETA_3_FIELD_NUMBER = 23;
     private int theta3_;
     /**
@@ -846,7 +806,6 @@ public final class SmartMeterDataProtos {
       return theta3_;
     }
 
-    // optional int32 mag_V3 = 24;
     public static final int MAG_V3_FIELD_NUMBER = 24;
     private int magV3_;
     /**
@@ -862,7 +821,6 @@ public final class SmartMeterDataProtos {
       return magV3_;
     }
 
-    // optional int32 mag_I3 = 25;
     public static final int MAG_I3_FIELD_NUMBER = 25;
     private int magI3_;
     /**
@@ -878,7 +836,6 @@ public final class SmartMeterDataProtos {
       return magI3_;
     }
 
-    // optional int32 sm_V = 26;
     public static final int SM_V_FIELD_NUMBER = 26;
     private int smV_;
     /**
@@ -894,7 +851,6 @@ public final class SmartMeterDataProtos {
       return smV_;
     }
 
-    // optional int32 sm_I = 27;
     public static final int SM_I_FIELD_NUMBER = 27;
     private int smI_;
     /**
@@ -939,7 +895,8 @@ public final class SmartMeterDataProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -1207,8 +1164,9 @@ public final class SmartMeterDataProtos {
      * Protobuf type {@code SmartMeter}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.itu.localserver.client.SmartMeterDataProtos.SmartMeterOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SmartMeter)
+        com.itu.localserver.client.SmartMeterDataProtos.SmartMeterOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.itu.localserver.client.SmartMeterDataProtos.internal_static_SmartMeter_descriptor;
@@ -1532,7 +1490,6 @@ public final class SmartMeterDataProtos {
       }
       private int bitField0_;
 
-      // optional int32 id = 1;
       private int id_ ;
       /**
        * <code>optional int32 id = 1;</code>
@@ -1565,7 +1522,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 sm_index = 2;
       private int smIndex_ ;
       /**
        * <code>optional int32 sm_index = 2;</code>
@@ -1598,7 +1554,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional string ieeeAddress = 3;
       private java.lang.Object ieeeAddress_ = "";
       /**
        * <code>optional string ieeeAddress = 3;</code>
@@ -1612,9 +1567,12 @@ public final class SmartMeterDataProtos {
       public java.lang.String getIeeeAddress() {
         java.lang.Object ref = ieeeAddress_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          ieeeAddress_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            ieeeAddress_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1672,7 +1630,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional string timestamp = 4;
       private java.lang.Object timestamp_ = "";
       /**
        * <code>optional string timestamp = 4;</code>
@@ -1686,9 +1643,12 @@ public final class SmartMeterDataProtos {
       public java.lang.String getTimestamp() {
         java.lang.Object ref = timestamp_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          timestamp_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            timestamp_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -1746,7 +1706,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 rms_V1 = 5;
       private int rmsV1_ ;
       /**
        * <code>optional int32 rms_V1 = 5;</code>
@@ -1779,7 +1738,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional float rms_I1 = 6;
       private float rmsI1_ ;
       /**
        * <code>optional float rms_I1 = 6;</code>
@@ -1812,7 +1770,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 rms_V2 = 7;
       private int rmsV2_ ;
       /**
        * <code>optional int32 rms_V2 = 7;</code>
@@ -1845,7 +1802,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional float rms_I2 = 8;
       private float rmsI2_ ;
       /**
        * <code>optional float rms_I2 = 8;</code>
@@ -1878,7 +1834,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 rms_V3 = 9;
       private int rmsV3_ ;
       /**
        * <code>optional int32 rms_V3 = 9;</code>
@@ -1911,7 +1866,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional float rms_I3 = 10;
       private float rmsI3_ ;
       /**
        * <code>optional float rms_I3 = 10;</code>
@@ -1944,7 +1898,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional float power = 11;
       private float power_ ;
       /**
        * <code>optional float power = 11;</code>
@@ -1977,7 +1930,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional float accumulated_energy = 12;
       private float accumulatedEnergy_ ;
       /**
        * <code>optional float accumulated_energy = 12;</code>
@@ -2010,7 +1962,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 status = 13;
       private int status_ ;
       /**
        * <code>optional int32 status = 13;</code>
@@ -2043,7 +1994,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 theta_1 = 17;
       private int theta1_ ;
       /**
        * <code>optional int32 theta_1 = 17;</code>
@@ -2076,7 +2026,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 mag_V1 = 18;
       private int magV1_ ;
       /**
        * <code>optional int32 mag_V1 = 18;</code>
@@ -2109,7 +2058,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 mag_I1 = 19;
       private int magI1_ ;
       /**
        * <code>optional int32 mag_I1 = 19;</code>
@@ -2142,7 +2090,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 theta_2 = 20;
       private int theta2_ ;
       /**
        * <code>optional int32 theta_2 = 20;</code>
@@ -2175,7 +2122,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 mag_V2 = 21;
       private int magV2_ ;
       /**
        * <code>optional int32 mag_V2 = 21;</code>
@@ -2208,7 +2154,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 mag_I2 = 22;
       private int magI2_ ;
       /**
        * <code>optional int32 mag_I2 = 22;</code>
@@ -2241,7 +2186,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 theta_3 = 23;
       private int theta3_ ;
       /**
        * <code>optional int32 theta_3 = 23;</code>
@@ -2274,7 +2218,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 mag_V3 = 24;
       private int magV3_ ;
       /**
        * <code>optional int32 mag_V3 = 24;</code>
@@ -2307,7 +2250,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 mag_I3 = 25;
       private int magI3_ ;
       /**
        * <code>optional int32 mag_I3 = 25;</code>
@@ -2340,7 +2282,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 sm_V = 26;
       private int smV_ ;
       /**
        * <code>optional int32 sm_V = 26;</code>
@@ -2373,7 +2314,6 @@ public final class SmartMeterDataProtos {
         return this;
       }
 
-      // optional int32 sm_I = 27;
       private int smI_ ;
       /**
        * <code>optional int32 sm_I = 27;</code>
@@ -2417,10 +2357,10 @@ public final class SmartMeterDataProtos {
     // @@protoc_insertion_point(class_scope:SmartMeter)
   }
 
-  public interface SmartMeterDataOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface SmartMeterDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SmartMeterData)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .SmartMeter smart_meter = 1;
     /**
      * <code>repeated .SmartMeter smart_meter = 1;</code>
      */
@@ -2449,8 +2389,9 @@ public final class SmartMeterDataProtos {
    * Protobuf type {@code SmartMeterData}
    */
   public static final class SmartMeterData extends
-      com.google.protobuf.GeneratedMessage
-      implements SmartMeterDataOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:SmartMeterData)
+      SmartMeterDataOrBuilder {
     // Use SmartMeterData.newBuilder() to construct.
     private SmartMeterData(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -2546,7 +2487,6 @@ public final class SmartMeterDataProtos {
       return PARSER;
     }
 
-    // repeated .SmartMeter smart_meter = 1;
     public static final int SMART_METER_FIELD_NUMBER = 1;
     private java.util.List<com.itu.localserver.client.SmartMeterDataProtos.SmartMeter> smartMeter_;
     /**
@@ -2588,7 +2528,8 @@ public final class SmartMeterDataProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       memoizedIsInitialized = 1;
       return true;
@@ -2695,8 +2636,9 @@ public final class SmartMeterDataProtos {
      * Protobuf type {@code SmartMeterData}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.itu.localserver.client.SmartMeterDataProtos.SmartMeterDataOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SmartMeterData)
+        com.itu.localserver.client.SmartMeterDataProtos.SmartMeterDataOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.itu.localserver.client.SmartMeterDataProtos.internal_static_SmartMeterData_descriptor;
@@ -2840,7 +2782,6 @@ public final class SmartMeterDataProtos {
       }
       private int bitField0_;
 
-      // repeated .SmartMeter smart_meter = 1;
       private java.util.List<com.itu.localserver.client.SmartMeterDataProtos.SmartMeter> smartMeter_ =
         java.util.Collections.emptyList();
       private void ensureSmartMeterIsMutable() {
@@ -2982,7 +2923,8 @@ public final class SmartMeterDataProtos {
           java.lang.Iterable<? extends com.itu.localserver.client.SmartMeterDataProtos.SmartMeter> values) {
         if (smartMeterBuilder_ == null) {
           ensureSmartMeterIsMutable();
-          super.addAll(values, smartMeter_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, smartMeter_);
           onChanged();
         } else {
           smartMeterBuilder_.addAllMessages(values);
@@ -3091,12 +3033,12 @@ public final class SmartMeterDataProtos {
     // @@protoc_insertion_point(class_scope:SmartMeterData)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SmartMeter_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_SmartMeter_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_SmartMeterData_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -3127,29 +3069,29 @@ public final class SmartMeterDataProtos {
       "os"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_SmartMeter_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_SmartMeter_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_SmartMeter_descriptor,
-              new java.lang.String[] { "Id", "SmIndex", "IeeeAddress", "Timestamp", "RmsV1", "RmsI1", "RmsV2", "RmsI2", "RmsV3", "RmsI3", "Power", "AccumulatedEnergy", "Status", "Theta1", "MagV1", "MagI1", "Theta2", "MagV2", "MagI2", "Theta3", "MagV3", "MagI3", "SmV", "SmI", });
-          internal_static_SmartMeterData_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_SmartMeterData_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_SmartMeterData_descriptor,
-              new java.lang.String[] { "SmartMeter", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_SmartMeter_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_SmartMeter_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_SmartMeter_descriptor,
+        new java.lang.String[] { "Id", "SmIndex", "IeeeAddress", "Timestamp", "RmsV1", "RmsI1", "RmsV2", "RmsI2", "RmsV3", "RmsI3", "Power", "AccumulatedEnergy", "Status", "Theta1", "MagV1", "MagI1", "Theta2", "MagV2", "MagI2", "Theta3", "MagV3", "MagI3", "SmV", "SmI", });
+    internal_static_SmartMeterData_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_SmartMeterData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_SmartMeterData_descriptor,
+        new java.lang.String[] { "SmartMeter", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

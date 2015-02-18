@@ -8,10 +8,10 @@ public final class CloudCommandProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface CloudCommandOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface CloudCommandOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:CloudCommand)
+      com.google.protobuf.MessageOrBuilder {
 
-    // required int32 id = 1;
     /**
      * <code>required int32 id = 1;</code>
      *
@@ -27,7 +27,6 @@ public final class CloudCommandProtos {
      */
     int getId();
 
-    // optional int32 timestamp = 2;
     /**
      * <code>optional int32 timestamp = 2;</code>
      */
@@ -37,7 +36,6 @@ public final class CloudCommandProtos {
      */
     int getTimestamp();
 
-    // optional string name = 3;
     /**
      * <code>optional string name = 3;</code>
      */
@@ -52,7 +50,6 @@ public final class CloudCommandProtos {
     com.google.protobuf.ByteString
         getNameBytes();
 
-    // optional int32 dataLength = 4;
     /**
      * <code>optional int32 dataLength = 4;</code>
      */
@@ -62,7 +59,6 @@ public final class CloudCommandProtos {
      */
     int getDataLength();
 
-    // optional int32 checked = 5;
     /**
      * <code>optional int32 checked = 5;</code>
      */
@@ -72,7 +68,6 @@ public final class CloudCommandProtos {
      */
     int getChecked();
 
-    // optional int32 coordinatorId = 6;
     /**
      * <code>optional int32 coordinatorId = 6;</code>
      *
@@ -88,7 +83,6 @@ public final class CloudCommandProtos {
      */
     int getCoordinatorId();
 
-    // optional int32 smartmeterId = 7;
     /**
      * <code>optional int32 smartmeterId = 7;</code>
      *
@@ -104,7 +98,6 @@ public final class CloudCommandProtos {
      */
     int getSmartmeterId();
 
-    // optional int32 param1 = 8;
     /**
      * <code>optional int32 param1 = 8;</code>
      *
@@ -124,8 +117,9 @@ public final class CloudCommandProtos {
    * Protobuf type {@code CloudCommand}
    */
   public static final class CloudCommand extends
-      com.google.protobuf.GeneratedMessage
-      implements CloudCommandOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:CloudCommand)
+      CloudCommandOrBuilder {
     // Use CloudCommand.newBuilder() to construct.
     private CloudCommand(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -182,8 +176,9 @@ public final class CloudCommandProtos {
               break;
             }
             case 26: {
+              com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000004;
-              name_ = input.readBytes();
+              name_ = bs;
               break;
             }
             case 32: {
@@ -251,7 +246,6 @@ public final class CloudCommandProtos {
     }
 
     private int bitField0_;
-    // required int32 id = 1;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
@@ -273,7 +267,6 @@ public final class CloudCommandProtos {
       return id_;
     }
 
-    // optional int32 timestamp = 2;
     public static final int TIMESTAMP_FIELD_NUMBER = 2;
     private int timestamp_;
     /**
@@ -289,7 +282,6 @@ public final class CloudCommandProtos {
       return timestamp_;
     }
 
-    // optional string name = 3;
     public static final int NAME_FIELD_NUMBER = 3;
     private java.lang.Object name_;
     /**
@@ -332,7 +324,6 @@ public final class CloudCommandProtos {
       }
     }
 
-    // optional int32 dataLength = 4;
     public static final int DATALENGTH_FIELD_NUMBER = 4;
     private int dataLength_;
     /**
@@ -348,7 +339,6 @@ public final class CloudCommandProtos {
       return dataLength_;
     }
 
-    // optional int32 checked = 5;
     public static final int CHECKED_FIELD_NUMBER = 5;
     private int checked_;
     /**
@@ -364,7 +354,6 @@ public final class CloudCommandProtos {
       return checked_;
     }
 
-    // optional int32 coordinatorId = 6;
     public static final int COORDINATORID_FIELD_NUMBER = 6;
     private int coordinatorId_;
     /**
@@ -386,7 +375,6 @@ public final class CloudCommandProtos {
       return coordinatorId_;
     }
 
-    // optional int32 smartmeterId = 7;
     public static final int SMARTMETERID_FIELD_NUMBER = 7;
     private int smartmeterId_;
     /**
@@ -408,7 +396,6 @@ public final class CloudCommandProtos {
       return smartmeterId_;
     }
 
-    // optional int32 param1 = 8;
     public static final int PARAM1_FIELD_NUMBER = 8;
     private int param1_;
     /**
@@ -443,7 +430,8 @@ public final class CloudCommandProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       if (!hasId()) {
         memoizedIsInitialized = 0;
@@ -603,8 +591,9 @@ public final class CloudCommandProtos {
      * Protobuf type {@code CloudCommand}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.itu.myserver.CloudCommandProtos.CloudCommandOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:CloudCommand)
+        com.itu.myserver.CloudCommandProtos.CloudCommandOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.itu.myserver.CloudCommandProtos.internal_static_CloudCommand_descriptor;
@@ -786,7 +775,6 @@ public final class CloudCommandProtos {
       }
       private int bitField0_;
 
-      // required int32 id = 1;
       private int id_ ;
       /**
        * <code>required int32 id = 1;</code>
@@ -831,7 +819,6 @@ public final class CloudCommandProtos {
         return this;
       }
 
-      // optional int32 timestamp = 2;
       private int timestamp_ ;
       /**
        * <code>optional int32 timestamp = 2;</code>
@@ -864,7 +851,6 @@ public final class CloudCommandProtos {
         return this;
       }
 
-      // optional string name = 3;
       private java.lang.Object name_ = "";
       /**
        * <code>optional string name = 3;</code>
@@ -878,9 +864,12 @@ public final class CloudCommandProtos {
       public java.lang.String getName() {
         java.lang.Object ref = name_;
         if (!(ref instanceof java.lang.String)) {
-          java.lang.String s = ((com.google.protobuf.ByteString) ref)
-              .toStringUtf8();
-          name_ = s;
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            name_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -938,7 +927,6 @@ public final class CloudCommandProtos {
         return this;
       }
 
-      // optional int32 dataLength = 4;
       private int dataLength_ ;
       /**
        * <code>optional int32 dataLength = 4;</code>
@@ -971,7 +959,6 @@ public final class CloudCommandProtos {
         return this;
       }
 
-      // optional int32 checked = 5;
       private int checked_ ;
       /**
        * <code>optional int32 checked = 5;</code>
@@ -1004,7 +991,6 @@ public final class CloudCommandProtos {
         return this;
       }
 
-      // optional int32 coordinatorId = 6;
       private int coordinatorId_ ;
       /**
        * <code>optional int32 coordinatorId = 6;</code>
@@ -1049,7 +1035,6 @@ public final class CloudCommandProtos {
         return this;
       }
 
-      // optional int32 smartmeterId = 7;
       private int smartmeterId_ ;
       /**
        * <code>optional int32 smartmeterId = 7;</code>
@@ -1094,7 +1079,6 @@ public final class CloudCommandProtos {
         return this;
       }
 
-      // optional int32 param1 = 8;
       private int param1_ ;
       /**
        * <code>optional int32 param1 = 8;</code>
@@ -1150,10 +1134,10 @@ public final class CloudCommandProtos {
     // @@protoc_insertion_point(class_scope:CloudCommand)
   }
 
-  public interface CloudCommandsOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface CloudCommandsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:CloudCommands)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .CloudCommand cloudcommands = 1;
     /**
      * <code>repeated .CloudCommand cloudcommands = 1;</code>
      */
@@ -1182,8 +1166,9 @@ public final class CloudCommandProtos {
    * Protobuf type {@code CloudCommands}
    */
   public static final class CloudCommands extends
-      com.google.protobuf.GeneratedMessage
-      implements CloudCommandsOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:CloudCommands)
+      CloudCommandsOrBuilder {
     // Use CloudCommands.newBuilder() to construct.
     private CloudCommands(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -1279,7 +1264,6 @@ public final class CloudCommandProtos {
       return PARSER;
     }
 
-    // repeated .CloudCommand cloudcommands = 1;
     public static final int CLOUDCOMMANDS_FIELD_NUMBER = 1;
     private java.util.List<com.itu.myserver.CloudCommandProtos.CloudCommand> cloudcommands_;
     /**
@@ -1321,7 +1305,8 @@ public final class CloudCommandProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getCloudcommandsCount(); i++) {
         if (!getCloudcommands(i).isInitialized()) {
@@ -1434,8 +1419,9 @@ public final class CloudCommandProtos {
      * Protobuf type {@code CloudCommands}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.itu.myserver.CloudCommandProtos.CloudCommandsOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:CloudCommands)
+        com.itu.myserver.CloudCommandProtos.CloudCommandsOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.itu.myserver.CloudCommandProtos.internal_static_CloudCommands_descriptor;
@@ -1585,7 +1571,6 @@ public final class CloudCommandProtos {
       }
       private int bitField0_;
 
-      // repeated .CloudCommand cloudcommands = 1;
       private java.util.List<com.itu.myserver.CloudCommandProtos.CloudCommand> cloudcommands_ =
         java.util.Collections.emptyList();
       private void ensureCloudcommandsIsMutable() {
@@ -1727,7 +1712,8 @@ public final class CloudCommandProtos {
           java.lang.Iterable<? extends com.itu.myserver.CloudCommandProtos.CloudCommand> values) {
         if (cloudcommandsBuilder_ == null) {
           ensureCloudcommandsIsMutable();
-          super.addAll(values, cloudcommands_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, cloudcommands_);
           onChanged();
         } else {
           cloudcommandsBuilder_.addAllMessages(values);
@@ -1836,12 +1822,12 @@ public final class CloudCommandProtos {
     // @@protoc_insertion_point(class_scope:CloudCommands)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CloudCommand_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_CloudCommand_fieldAccessorTable;
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_CloudCommands_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -1865,29 +1851,29 @@ public final class CloudCommandProtos {
       "dCommandProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_CloudCommand_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_CloudCommand_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_CloudCommand_descriptor,
-              new java.lang.String[] { "Id", "Timestamp", "Name", "DataLength", "Checked", "CoordinatorId", "SmartmeterId", "Param1", });
-          internal_static_CloudCommands_descriptor =
-            getDescriptor().getMessageTypes().get(1);
-          internal_static_CloudCommands_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_CloudCommands_descriptor,
-              new java.lang.String[] { "Cloudcommands", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_CloudCommand_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_CloudCommand_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_CloudCommand_descriptor,
+        new java.lang.String[] { "Id", "Timestamp", "Name", "DataLength", "Checked", "CoordinatorId", "SmartmeterId", "Param1", });
+    internal_static_CloudCommands_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_CloudCommands_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_CloudCommands_descriptor,
+        new java.lang.String[] { "Cloudcommands", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

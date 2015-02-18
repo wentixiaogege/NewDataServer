@@ -8,10 +8,10 @@ public final class CloudCmdActionProtos {
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistry registry) {
   }
-  public interface CloudCmdActionOrBuilder
-      extends com.google.protobuf.MessageOrBuilder {
+  public interface CloudCmdActionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:edu.itu.CloudCmdAction)
+      com.google.protobuf.MessageOrBuilder {
 
-    // repeated .CloudCommand insert_cmds = 1;
     /**
      * <code>repeated .CloudCommand insert_cmds = 1;</code>
      */
@@ -36,7 +36,6 @@ public final class CloudCmdActionProtos {
     com.itu.myserver.CloudCommandProtos.CloudCommandOrBuilder getInsertCmdsOrBuilder(
         int index);
 
-    // repeated .CloudCommand update_cmds = 2;
     /**
      * <code>repeated .CloudCommand update_cmds = 2;</code>
      */
@@ -61,7 +60,6 @@ public final class CloudCmdActionProtos {
     com.itu.myserver.CloudCommandProtos.CloudCommandOrBuilder getUpdateCmdsOrBuilder(
         int index);
 
-    // repeated .CloudCommand delete_cmds = 3;
     /**
      * <code>repeated .CloudCommand delete_cmds = 3;</code>
      */
@@ -86,7 +84,6 @@ public final class CloudCmdActionProtos {
     com.itu.myserver.CloudCommandProtos.CloudCommandOrBuilder getDeleteCmdsOrBuilder(
         int index);
 
-    // repeated .CloudCommand search_cmds = 4;
     /**
      * <code>repeated .CloudCommand search_cmds = 4;</code>
      */
@@ -115,8 +112,9 @@ public final class CloudCmdActionProtos {
    * Protobuf type {@code edu.itu.CloudCmdAction}
    */
   public static final class CloudCmdAction extends
-      com.google.protobuf.GeneratedMessage
-      implements CloudCmdActionOrBuilder {
+      com.google.protobuf.GeneratedMessage implements
+      // @@protoc_insertion_point(message_implements:edu.itu.CloudCmdAction)
+      CloudCmdActionOrBuilder {
     // Use CloudCmdAction.newBuilder() to construct.
     private CloudCmdAction(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
       super(builder);
@@ -245,7 +243,6 @@ public final class CloudCmdActionProtos {
       return PARSER;
     }
 
-    // repeated .CloudCommand insert_cmds = 1;
     public static final int INSERT_CMDS_FIELD_NUMBER = 1;
     private java.util.List<com.itu.myserver.CloudCommandProtos.CloudCommand> insertCmds_;
     /**
@@ -281,7 +278,6 @@ public final class CloudCmdActionProtos {
       return insertCmds_.get(index);
     }
 
-    // repeated .CloudCommand update_cmds = 2;
     public static final int UPDATE_CMDS_FIELD_NUMBER = 2;
     private java.util.List<com.itu.myserver.CloudCommandProtos.CloudCommand> updateCmds_;
     /**
@@ -317,7 +313,6 @@ public final class CloudCmdActionProtos {
       return updateCmds_.get(index);
     }
 
-    // repeated .CloudCommand delete_cmds = 3;
     public static final int DELETE_CMDS_FIELD_NUMBER = 3;
     private java.util.List<com.itu.myserver.CloudCommandProtos.CloudCommand> deleteCmds_;
     /**
@@ -353,7 +348,6 @@ public final class CloudCmdActionProtos {
       return deleteCmds_.get(index);
     }
 
-    // repeated .CloudCommand search_cmds = 4;
     public static final int SEARCH_CMDS_FIELD_NUMBER = 4;
     private java.util.List<com.itu.myserver.CloudCommandProtos.CloudCommand> searchCmds_;
     /**
@@ -398,7 +392,8 @@ public final class CloudCmdActionProtos {
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
-      if (isInitialized != -1) return isInitialized == 1;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
 
       for (int i = 0; i < getInsertCmdsCount(); i++) {
         if (!getInsertCmds(i).isInitialized()) {
@@ -550,8 +545,9 @@ public final class CloudCmdActionProtos {
      * Protobuf type {@code edu.itu.CloudCmdAction}
      */
     public static final class Builder extends
-        com.google.protobuf.GeneratedMessage.Builder<Builder>
-       implements com.itu.myserver.CloudCmdActionProtos.CloudCmdActionOrBuilder {
+        com.google.protobuf.GeneratedMessage.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:edu.itu.CloudCmdAction)
+        com.itu.myserver.CloudCmdActionProtos.CloudCmdActionOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
         return com.itu.myserver.CloudCmdActionProtos.internal_static_edu_itu_CloudCmdAction_descriptor;
@@ -845,7 +841,6 @@ public final class CloudCmdActionProtos {
       }
       private int bitField0_;
 
-      // repeated .CloudCommand insert_cmds = 1;
       private java.util.List<com.itu.myserver.CloudCommandProtos.CloudCommand> insertCmds_ =
         java.util.Collections.emptyList();
       private void ensureInsertCmdsIsMutable() {
@@ -987,7 +982,8 @@ public final class CloudCmdActionProtos {
           java.lang.Iterable<? extends com.itu.myserver.CloudCommandProtos.CloudCommand> values) {
         if (insertCmdsBuilder_ == null) {
           ensureInsertCmdsIsMutable();
-          super.addAll(values, insertCmds_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, insertCmds_);
           onChanged();
         } else {
           insertCmdsBuilder_.addAllMessages(values);
@@ -1085,7 +1081,6 @@ public final class CloudCmdActionProtos {
         return insertCmdsBuilder_;
       }
 
-      // repeated .CloudCommand update_cmds = 2;
       private java.util.List<com.itu.myserver.CloudCommandProtos.CloudCommand> updateCmds_ =
         java.util.Collections.emptyList();
       private void ensureUpdateCmdsIsMutable() {
@@ -1227,7 +1222,8 @@ public final class CloudCmdActionProtos {
           java.lang.Iterable<? extends com.itu.myserver.CloudCommandProtos.CloudCommand> values) {
         if (updateCmdsBuilder_ == null) {
           ensureUpdateCmdsIsMutable();
-          super.addAll(values, updateCmds_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, updateCmds_);
           onChanged();
         } else {
           updateCmdsBuilder_.addAllMessages(values);
@@ -1325,7 +1321,6 @@ public final class CloudCmdActionProtos {
         return updateCmdsBuilder_;
       }
 
-      // repeated .CloudCommand delete_cmds = 3;
       private java.util.List<com.itu.myserver.CloudCommandProtos.CloudCommand> deleteCmds_ =
         java.util.Collections.emptyList();
       private void ensureDeleteCmdsIsMutable() {
@@ -1467,7 +1462,8 @@ public final class CloudCmdActionProtos {
           java.lang.Iterable<? extends com.itu.myserver.CloudCommandProtos.CloudCommand> values) {
         if (deleteCmdsBuilder_ == null) {
           ensureDeleteCmdsIsMutable();
-          super.addAll(values, deleteCmds_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, deleteCmds_);
           onChanged();
         } else {
           deleteCmdsBuilder_.addAllMessages(values);
@@ -1565,7 +1561,6 @@ public final class CloudCmdActionProtos {
         return deleteCmdsBuilder_;
       }
 
-      // repeated .CloudCommand search_cmds = 4;
       private java.util.List<com.itu.myserver.CloudCommandProtos.CloudCommand> searchCmds_ =
         java.util.Collections.emptyList();
       private void ensureSearchCmdsIsMutable() {
@@ -1707,7 +1702,8 @@ public final class CloudCmdActionProtos {
           java.lang.Iterable<? extends com.itu.myserver.CloudCommandProtos.CloudCommand> values) {
         if (searchCmdsBuilder_ == null) {
           ensureSearchCmdsIsMutable();
-          super.addAll(values, searchCmds_);
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, searchCmds_);
           onChanged();
         } else {
           searchCmdsBuilder_.addAllMessages(values);
@@ -1816,7 +1812,7 @@ public final class CloudCmdActionProtos {
     // @@protoc_insertion_point(class_scope:edu.itu.CloudCmdAction)
   }
 
-  private static com.google.protobuf.Descriptors.Descriptor
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_edu_itu_CloudCmdAction_descriptor;
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
@@ -1840,24 +1836,25 @@ public final class CloudCmdActionProtos {
       "mdActionProtos"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-      new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-        public com.google.protobuf.ExtensionRegistry assignDescriptors(
-            com.google.protobuf.Descriptors.FileDescriptor root) {
-          descriptor = root;
-          internal_static_edu_itu_CloudCmdAction_descriptor =
-            getDescriptor().getMessageTypes().get(0);
-          internal_static_edu_itu_CloudCmdAction_fieldAccessorTable = new
-            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-              internal_static_edu_itu_CloudCmdAction_descriptor,
-              new java.lang.String[] { "InsertCmds", "UpdateCmds", "DeleteCmds", "SearchCmds", });
-          return null;
-        }
-      };
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.itu.myserver.CloudCommandProtos.getDescriptor(),
         }, assigner);
+    internal_static_edu_itu_CloudCmdAction_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_edu_itu_CloudCmdAction_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+        internal_static_edu_itu_CloudCmdAction_descriptor,
+        new java.lang.String[] { "InsertCmds", "UpdateCmds", "DeleteCmds", "SearchCmds", });
+    com.itu.myserver.CloudCommandProtos.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
