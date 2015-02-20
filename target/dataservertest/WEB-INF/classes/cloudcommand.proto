@@ -1,4 +1,4 @@
-option java_package = "com.itu.myserver";
+option java_package = "com.itu.action";
 option java_outer_classname = "CloudCommandProtos";
 message CloudCommand {
 	required int32 id = 1;//

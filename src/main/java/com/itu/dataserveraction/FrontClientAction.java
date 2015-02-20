@@ -2,12 +2,12 @@ package com.itu.dataserveraction;
 
 import javax.ws.rs.Path;
 
+import com.itu.action.CloudCmdActionProtos.CloudCmdAction;
+import com.itu.action.CloudCommandProtos.CloudCommand;
 import com.itu.dataserverlogic.FrontClientLogic;
-import com.itu.myserver.CloudCmdActionProtos.CloudCmdAction;
-import com.itu.myserver.CloudCommandProtos.CloudCommand;
 
 @Path("/frontclientaction")
-public class FrontClientAction extends CommonProtoAciton<CloudCmdAction, CloudCommand> {
+public class FrontClientAction extends CommonProtoAction<CloudCmdAction, CloudCommand> {
 
 	@Override
 	protected void initCommonProtoLogic() {

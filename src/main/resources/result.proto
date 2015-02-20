@@ -1,0 +1,8 @@
+package edu.itu;
+
+option java_package = "com.itu.action";
+option java_outer_classname = "ResultsProtos";
+message Result {
+	optional string res = 1;
+	optional string err_msg = 2;
+}

@@ -2,8 +2,8 @@ package com.itu.dataserverlogic;
 
 import org.apache.log4j.Logger;
 
-import com.itu.myserver.CloudCmdActionProtos.CloudCmdAction;
-import com.itu.myserver.CloudCommandProtos.CloudCommand;
+import com.itu.action.CloudCmdActionProtos.CloudCmdAction;
+import com.itu.action.CloudCommandProtos.CloudCommand;
 import com.itu.util.Log4jUtil;
 
 public class FrontClientLogic extends CommonProtoLogic<CloudCmdAction, CloudCommand> {
