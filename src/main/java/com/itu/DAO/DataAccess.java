@@ -40,7 +40,7 @@ public class DataAccess {
 		return true;
 
 	}
-	public  static <T> boolean updateOperation(T update) {
+	public  static <T> boolean modifyOperation(T update) {
 		logger.debug("addNewCommand begin..");
 
 		try {
@@ -84,7 +84,7 @@ public class DataAccess {
 		try {
 			s = factory.openSession();
 			
-			Query query = s.createQuery(get);
+			Query query = s.createQuery(get);//.setTimestamp("beginTime", begin).setTimestamp("endTime", end)
 			list = query.list();
 			
 		} catch (Exception e) {

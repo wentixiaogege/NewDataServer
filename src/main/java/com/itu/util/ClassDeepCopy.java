@@ -87,7 +87,7 @@ public class ClassDeepCopy {
 		Class<? extends Object> protoClass = proto.getClass();
 		MutableBoolean flag = new MutableBoolean(true);
 
-		// loop methods witch starts with "get"
+		// loop methods whitch starts with "get"
 		Arrays.stream(beanClass.getDeclaredMethods()).filter(x -> x.getName().startsWith("set")).forEach(x -> {
 			String setMethodName = x.getName();
 			logger.debug(String.format("setMethodName:%s", setMethodName));
@@ -112,7 +112,7 @@ public class ClassDeepCopy {
 						Object value = m2.invoke(proto);
 						if (value != null) {
 							x.invoke(bean, value);
-							logger.debug(String.format("field %s set correct, valeu is %s", mMethod, value.toString()));
+							logger.debug(String.format("field %s set correct, value is %s", mMethod, value.toString()));
 						} else {
 							logger.info(String.format("field %s is null!", mMethod));
 						}

@@ -106,8 +106,20 @@
 		<!-- Hibernate library dependecy end -->
 	</dependencies>
 	<build>
-		<finalName>dataservertest</finalName>
+		<finalName>newDataServer</finalName>
 		<plugins>
+		
+		   <plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<excludes>
+						<exclude>**/src/main/resources/*.proto</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			
 			<plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
@@ -132,17 +144,31 @@
 								
 								<exec executable='protoc'>
 									<arg value='--java_out=target/generated-sources' />
-									<arg value='src/main/resources/smart_meter_data_records.proto' />
+									<arg value='src/main/resources/frontserver_smart_meter_data_record.proto' />
 								</exec>
 								
 								<exec executable='protoc'>
 									<arg value='--java_out=target/generated-sources' />
-									<arg value='src/main/resources/smart_meter_actions.proto' />
+									<arg value='src/main/resources/frontserver_smart_meter_action.proto' />
+								</exec>
+								<exec executable='protoc'>
+									<arg value='--java_out=target/generated-sources' />
+									<arg value='src/main/resources/localserver_smart_meter_data_record.proto' />
+								</exec>
+								
+								<exec executable='protoc'>
+									<arg value='--java_out=target/generated-sources' />
+									<arg value='src/main/resources/localserver_smart_meter_action.proto' />
 								</exec>
 								
 								<exec executable='protoc'>
 									<arg value='--java_out=target/generated-sources' />
 									<arg value='src/main/resources/result.proto' />
+								</exec>
+								
+								<exec executable='protoc'>
+									<arg value='--java_out=target/generated-sources' />
+									<arg value='src/main/resources/common_enum.proto' />
 								</exec>
 							</tasks>
 							<sourceRoot>target/generated-sources</sourceRoot>
@@ -151,16 +177,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			<plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <excludes>
-						<exclude>**/src/main/resources/*.proto</exclude>
-					</excludes>
-                </configuration>
-            </plugin>
+			
             <plugin>  
 			    <groupId>org.apache.maven.plugins</groupId>  
 			    <artifactId>maven-javadoc-plugin</artifactId>  
