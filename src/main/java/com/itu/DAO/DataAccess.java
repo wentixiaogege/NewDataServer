@@ -1,5 +1,6 @@
 package com.itu.DAO;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,8 +11,7 @@ import org.hibernate.Transaction;
 
 import com.itu.bean.CloudCommand;
 import com.itu.bean.Command;
-
-import com.itu.util.ClassDeepCopy;
+import com.itu.bean.SmartMeterData;
 import com.itu.util.DateUtils;
 import com.itu.util.HibernateUtil;
 import com.itu.util.Log4jUtil;
@@ -21,14 +21,25 @@ public class DataAccess {
 	private static Session s = null;
 	private static SessionFactory factory = HibernateUtil.getSessionFactory();
 
-	public  static <T> boolean addOperation(T[] add) {
+	public  static <T> boolean addOperation(List<T> add) {
 		logger.debug("add  begin..");
-
+		logger.debug("size"+add.size());
+//		add.forEach(x->x);
 		try {
 			s = factory.openSession();
 			Transaction tran = s.beginTransaction();// 开始事物
-			s.save(add);// 执行
+//			s.save(add);
+//			for (T t : add) {
+//				s.save(t);
+//			}
+			
+			add.forEach(t->s.save(t));
+			/*for(T onerecord : add)
+			{
+				s.save(onerecord);// 执行
+			}*/
 			tran.commit();// 提交
+			
 		} catch (Exception e) {
 			logger.debug("add failed", e);
 			return false;

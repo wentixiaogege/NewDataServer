@@ -19,7 +19,7 @@ public class FrontClientLogic2 extends CommonProtoLogic2<CloudCommand> {
 
 	@Override
 	public String executeAction(CloudCommand cmd) {
-		if (null == cmd)
+		if (null == cmd) 
 			return "Hello World";
 
 		logger.debug(String.format("post a new command, id:%d, param1:%d, param1:%d", cmd.getId(), cmd.getParam1(), cmd.getParam1()));

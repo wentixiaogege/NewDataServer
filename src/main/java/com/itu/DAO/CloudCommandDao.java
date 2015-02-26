@@ -10,7 +10,6 @@ import org.hibernate.Transaction;
 
 import com.itu.bean.CloudCommand;
 import com.itu.bean.Command;
-import com.itu.util.ClassDeepCopy;
 import com.itu.util.HibernateUtil;
 import com.itu.util.Log4jUtil;
 
