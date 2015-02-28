@@ -1,8 +1,11 @@
 package com.itu.dataserverlogic;
 
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter.DEFAULT;
+import com.itu.util.Log4jUtil;
+import org.apache.log4j.Logger;
 
 public abstract class ICommonLogic<T, V> {
+	Logger logger = Log4jUtil.getLogger(ICommonLogic.class);
+
 //	public boolean executeActionBool(String... strs){
 //		return false;
 //	}

@@ -89,13 +89,34 @@ public class DataAccess {
 		return true;
 
 	}
-	public  static <T> List<T> searchOperation(String get) {
+	public  static <T> List<T> HibernateSearchOperation(String get) {
 		logger.debug("get data begin..");
 		List<T> list = null;
 		try {
 			s = factory.openSession();
 			
 			Query query = s.createQuery(get);//.setTimestamp("beginTime", begin).setTimestamp("endTime", end)
+			query.setMaxResults(100);
+			list = query.list();
+			
+		} catch (Exception e) {
+			logger.debug("failed", e);
+			
+		} finally {
+			if (s != null && s.isOpen())
+				s.close();
+		}
+		logger.debug("get data end..");
+		return list;
+
+	}
+	public  static <T> List<T> MysqlSearchOperation(String get) {
+		logger.debug("get data begin..");
+		List<T> list = null;
+		try {
+			s = factory.openSession();
+			
+			Query query = s.createSQLQuery(get);//.setTimestamp("beginTime", begin).setTimestamp("endTime", end)
 			list = query.list();
 			
 		} catch (Exception e) {
