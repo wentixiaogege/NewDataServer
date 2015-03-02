@@ -14,7 +14,7 @@ import com.itu.util.ClassDeepCopy;
 import com.itu.util.DateUtils;
 import com.itu.util.Log4jUtil;
 
-public class FrontSmartMeterLogic
+public class FrontSmartMeterSearchLogic
 		extends
 		CommonProtoLogic<FrontServerSmartMeterDataAction, FrontServerSmartMeterDataAction> {
 
@@ -26,7 +26,7 @@ public class FrontSmartMeterLogic
 	public FrontServerSmartMeterDataAction executeAction(
 			FrontServerSmartMeterDataAction t) {
 		// TODO Auto-generated method stub
-		logger = Log4jUtil.getLogger(FrontSmartMeterLogic.class);
+		logger = Log4jUtil.getLogger(FrontSmartMeterSearchLogic.class);
 		List<String> smieeeaddress = null;
 		long  starttime = 0, endtime = 0;
 		int time_before_current = 0;
@@ -48,30 +48,22 @@ public class FrontSmartMeterLogic
 			if ((0 != starttime) && (0 != endtime)) {
 				
 				logger.debug("(0 != starttime) && (0 != endtime)");
-				Date starttimeDate =  DateUtils.fromUnixTime(t.getStartTime());
-				Date endtimeDate =  DateUtils.fromUnixTime(t.getEndTime());
 				smieeeaddress = t.getSmIeeeAddressList();
 				if (0 == t.getSmIeeeAddressCount()) {
 					/**
 					 * search dedicated the smartmeters
 					 */
 					logger.debug("search dedicated the smartmeters with starttime");
-					String hql = ("from SmartMeterData smtable where smtable.timestamp > '"
-							+ starttimeDate
-							+ "' and smtable.timestamp <= '"
-							+ endtimeDate + "'");// need test
-					smdatarecords = getDataFromDatabase(smdatarecords, hql);
+				
+					smdatarecords = getDataFromDatabase(smdatarecords, setSearchHQL(starttime,endtime));
 
 				} else {
 					/**
 					 * search all the smartmeters
 					 */
 					logger.debug("search all the smartmeters with start time");
-					String hql = ("from SmartMeterData smtable where smtable.timestamp > '"
-							+ starttimeDate
-							+ "' and smtable.timestamp <= '"
-							+ endtimeDate + "'");// need test
-					smdatarecords = getDataFromDatabase(smdatarecords, hql);
+					
+					smdatarecords = getDataFromDatabase(smdatarecords, setSearchHQL(starttime,endtime));
 
 				}
 
@@ -128,6 +120,20 @@ public class FrontSmartMeterLogic
 				+ end + "'");
 		return hql;
 		}
+        private String setSearchHQL(long starttime,long endtime,String... parameters) {
+		
+        	
+    	Date starttimeDate =  DateUtils.fromUnixTime(starttime);
+		Date endtimeDate =  DateUtils.fromUnixTime(endtime);
+		
+		
+		
+		String hql = ("from SmartMeterData smtable where smtable.timestamp > '"
+				+ starttimeDate
+				+ "' and smtable.timestamp <= '"
+				+ endtimeDate + "'");// need test
+		return hql;
+		}
 	
 	private boolean hibernateListtoProto(List<SmartMeterData> list,
 			Builder smdatarecords) {
@@ -152,16 +158,17 @@ public class FrontSmartMeterLogic
 		return true;
 	}
 	// fetch data from table and return to Builder
-	private Builder getDataFromDatabase(
-				FrontServerSmartMeterDataAction.Builder smactionbuilder, String hql) {
+	private Builder getDataFromDatabase(FrontServerSmartMeterDataAction.Builder smactionbuilder, String hql) {
 			List<SmartMeterData> list = DataAccess.HibernateSearchOperation(hql);
 			Builder smdatarecords = FrontServerSmartMeterDataAction.newBuilder();
+			logger.debug("hibernateListtoProtoget data begin.."+System.nanoTime());
 			if (hibernateListtoProto(list, smdatarecords))
 				smactionbuilder.setStatus("true");
 			else {
 				smactionbuilder.setErrMsg("copy error");
 				smactionbuilder.setStatus("false");
 			}
+			logger.debug("hibernateListtoProtoget data end.."+System.nanoTime());
 			return smdatarecords;
 
 		}

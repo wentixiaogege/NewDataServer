@@ -8,7 +8,7 @@ import javax.ws.rs.core.MediaType;
 import org.apache.log4j.Logger;
 
 import com.itu.action.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction;
-import com.itu.dataserverlogic.FrontSmartMeterLogic;
+import com.itu.dataserverlogic.FrontSmartMeterSearchLogic;
 import com.itu.util.Log4jUtil;
 
 @Path("/FrontServerSmartMeterSearchAction")
@@ -19,7 +19,7 @@ public class FrontSmartMeterAction extends CommonProtoAction<FrontServerSmartMet
 		// TODO Auto-generated method stub
 		logger = Log4jUtil.getLogger(FrontSmartMeterAction.class);
 		logger.debug("FrontSmartMeterAction comming here!");
-		cmpLogic = new FrontSmartMeterLogic();
+		cmpLogic = new FrontSmartMeterSearchLogic();
 	}
 
 	@GET

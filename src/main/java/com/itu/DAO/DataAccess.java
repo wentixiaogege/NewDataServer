@@ -1,6 +1,6 @@
 package com.itu.DAO;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -9,10 +9,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import com.itu.bean.CloudCommand;
-import com.itu.bean.Command;
-import com.itu.bean.SmartMeterData;
-import com.itu.util.DateUtils;
 import com.itu.util.HibernateUtil;
 import com.itu.util.Log4jUtil;
 
@@ -90,15 +86,14 @@ public class DataAccess {
 
 	}
 	public  static <T> List<T> HibernateSearchOperation(String get) {
-		logger.debug("get data begin..");
+		logger.debug("get data begin.."+System.nanoTime());
+		logger.info("get data begin.."+System.nanoTime());
 		List<T> list = null;
 		try {
 			s = factory.openSession();
-			
 			Query query = s.createQuery(get);//.setTimestamp("beginTime", begin).setTimestamp("endTime", end)
 			query.setMaxResults(100);
 			list = query.list();
-			
 		} catch (Exception e) {
 			logger.debug("failed", e);
 			
@@ -106,7 +101,7 @@ public class DataAccess {
 			if (s != null && s.isOpen())
 				s.close();
 		}
-		logger.debug("get data end..");
+		logger.info("get data end.."+System.nanoTime());
 		return list;
 
 	}

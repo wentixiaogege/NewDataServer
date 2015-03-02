@@ -13,14 +13,14 @@ import com.itu.dataserverlogic.LocalServerAddLogic;
 import com.itu.util.Log4jUtil;
 
 @Path("/LocalServerAddSmartMeterData")
-public class LocalServerAddAction extends CommonProtoAction<LocalServerSmartMeterDataAction,Result>{
+public class LocalServerAddSmartMeterAction extends CommonProtoAction<LocalServerSmartMeterDataAction,Result>{
 	//Logger logger = Log4jUtil.getLogger(LocalServerAddAction.class);
 
 	
 	@Override
 	protected void initCommonProtoLogic() {
 		// TODO Auto-generated method stub
-		logger = Log4jUtil.getLogger(LocalServerAddAction.class);
+		logger = Log4jUtil.getLogger(LocalServerAddSmartMeterAction.class);
 		cmpLogic =  new LocalServerAddLogic();
 	}
 

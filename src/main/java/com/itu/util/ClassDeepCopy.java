@@ -12,6 +12,7 @@ import java.util.Optional;
 import org.apache.commons.lang3.mutable.MutableBoolean;
 import org.apache.log4j.Logger;
 
+import com.itu.util.Log4jUtil;
 import com.google.protobuf.MessageOrBuilder;
 
 public class ClassDeepCopy {
@@ -38,24 +39,22 @@ public class ClassDeepCopy {
 				.filter(x -> x.getName().startsWith("get"))
 				.forEach(beanGetMethod -> {
 					String getMsgName = beanGetMethod.getName();
-					logger.debug(String.format("getMsdName:%s", getMsgName));
+					//logger.debug(String.format("getMsdName:%s", getMsgName));
 
 					// if method included in exceptions, ignoring it.
 						String mMethod = getMsgName.substring(3);
-						logger.debug(String.format("field Name:%s", mMethod));
+						//logger.debug(String.format("field Name:%s", mMethod));
 						if (Arrays.stream(exceptions).anyMatch(
 								y -> y.toLowerCase().equals(
 										mMethod.toLowerCase()))) {
-							logger.info(String.format(
-									"Field %s is aborted..\n", mMethod));
+							//logger.info(String.format("Field %s is aborted..\n", mMethod));
 							return;
 						}
 
 						// init set method, it's tail must the same as get
 						// method.
 						String setMsgName = "set" + mMethod;
-						logger.debug(String
-								.format("setMsgName :%s", setMsgName));
+						//logger.debug(String.format("setMsgName :%s", setMsgName));
 
 						Optional<Method> opMethod = Arrays
 								.stream(protoClass.getMethods())
@@ -72,73 +71,61 @@ public class ClassDeepCopy {
 									// 1. we need do specail for BigDecimal
 									if (beanVal.getClass().equals(
 											BigDecimal.class)) {
-										logger.debug("we need do specail for BigDecimal,"
-												+ beanVal.getClass().getName()
-												+ " "
-												+ setMethod.getParameterTypes()[0]
-														.getName());
+										//logger.debug("we need do specail for BigDecimal,"+ beanVal.getClass().getName(+ " "+ setMethod.getParameterTypes()[0].getName());
 										if (setMethod.getParameterTypes()[0]
 												.equals(float.class)) {
-											logger.debug("convert value to bigdecimal");
+											//logger.debug("convert value to bigdecimal");
 											value = ((BigDecimal) beanVal)
 													.floatValue();
 										}
 									}
 
 									// 2. do some special for timestamp
-									logger.debug("beanVal.getClass():"
-											+ beanVal.getClass());
+									//logger.debug("beanVal.getClass():"+ beanVal.getClass());
 									// 2. do some special for timestamp
 									if (beanVal.getClass().equals(Date.class)
 											|| beanVal.getClass().equals(
 													java.sql.Timestamp.class)) {
 										Date beanValnew = (Date) beanVal;
-										logger.debug("this is a date");
+										//logger.debug("this is a date");
 										Class<?> setMethodParamType = setMethod
 												.getParameterTypes()[0];
 										DateFormat df = new SimpleDateFormat(
 												"yyyy-MM-dd HH:mm:ss");
-										logger.debug("setMethodParamType:"
-												+ setMethodParamType.getName());
+										//logger.debug("setMethodParamType:"+ setMethodParamType.getName());
 										if (setMethodParamType
 												.equals(String.class)) {
-											logger.debug("val is string");
+											//logger.debug("val is string");
 											try {
 												value = df
 														.format((Date) beanValnew);
 											} catch (Exception e) {
-												logger.debug(e.getMessage(), e);
+												//logger.debug(e.getMessage(), e);
 											}
 										} else if (setMethodParamType
 												.equals(long.class)) {
-											logger.debug("val is long");
+											//logger.debug("val is long");
 											value = DateUtils
 													.toUnixTime((Date) beanValnew);
 										}
 									}
 
 									setMethod.invoke(proto, value);
-									logger.debug(String
-											.format("field %s set correct, valeu is %s",
-													mMethod, value.toString()));
+									//logger.debug(String.format("field %s set correct, valeu is %s",mMethod, value.toString()));
 								} else {
-									logger.info(String.format(
-											"field %s is null!", mMethod));
+									//logger.info(String.format("field %s is null!", mMethod));
 								}
 							} else {
-								logger.debug(String
-										.format("setMsgName :%s is not present in dest",
-												setMsgName));
+								//logger.debug(String.format("setMsgName :%s is not present in dest",setMsgName));
 							}
 						} catch (Exception e) {
-							logger.debug(String.format("method %s error: %s",
-									mMethod, e.getMessage()));
-							logger.error("failed", e);
+							//logger.debug(String.format("method %s error: %s",mMethod, e.getMessage()));
+							//logger.error("failed", e);
 							e.printStackTrace();
 							flag.setFalse();
 						}
 
-						logger.debug("\n");
+						//logger.debug("\n");
 					});
 		return flag.getValue();
 		// return false;
@@ -166,26 +153,22 @@ public class ClassDeepCopy {
 				.forEach(
 						beanSetMethod -> {
 							String setMethodName = beanSetMethod.getName();
-							logger.debug(String.format("setMethodName:%s",
-									setMethodName));
+							//logger.debug(String.format("setMethodName:%s",setMethodName));
 
 							// if method included in exceptions, ignoring it.
 							String mMethod = setMethodName.substring(3);
-							logger.debug(String
-									.format("field Name:%s", mMethod));
+							//logger.debug(String.format("field Name:%s", mMethod));
 							if (Arrays.stream(exceptions).anyMatch(
 									y -> y.toLowerCase().equals(
 											mMethod.toLowerCase()))) {
-								logger.info(String.format(
-										"Field %s is aborted..\n", mMethod));
+								//logger.info(String.format("Field %s is aborted..\n", mMethod));
 								return;
 							}
 
 							// init set method, it's tail must the same as get
 							// method.
 							String getMethodName = "get" + mMethod;
-							logger.debug(String.format("getMethodName :%s",
-									getMethodName));
+							//logger.debug(String.format("getMethodName :%s",getMethodName));
 
 							Optional<Method> opProtoGetMethod = Arrays
 									.stream(protoClass.getMethods())
@@ -202,11 +185,11 @@ public class ClassDeepCopy {
 										// 1. we need do specail for BigDecimal
 										if (beanSetMethod.getParameterTypes()[0]
 												.equals(BigDecimal.class)) {
-											// logger.debug("we need do specail for BigDecimal"
+											// //logger.debug("we need do specail for BigDecimal"
 											// + val.getClass().getName());
 											if (getMsdResult.getClass().equals(
 													Float.class)) {
-												// logger.debug("convert value to bigdecimal");
+												// //logger.debug("convert value to bigdecimal");
 												value = new BigDecimal(
 														(float) getMsdResult)
 														.setScale(
@@ -219,60 +202,49 @@ public class ClassDeepCopy {
 
 										if (beanSetMethod.getParameterTypes()[0]
 												.equals(Date.class)) {
-											logger.debug("this is a date");
+											//logger.debug("this is a date");
 											DateFormat format = new SimpleDateFormat(
 													ItuFrontUtil.FOMAT_DATE);
-											// logger.debug("getmsdresult name:"+getMsdResult.getClass().getName());
+											// //logger.debug("getmsdresult name:"+getMsdResult.getClass().getName());
 											if (getMsdResult.getClass().equals(
 													String.class)) {
-												logger.debug("val is string");
+												//logger.debug("val is string");
 												try {
 													value = format
 															.parse((String) getMsdResult);
 												} catch (Exception e) {
-													logger.debug(
-															e.getMessage(), e);
+													//logger.debug(e.getMessage(), e);
 												}
 											} else if (getMsdResult
 													.getClass()
 													.equals(java.lang.Long.class)) {
-												logger.debug("val is long");
+												//logger.debug("val is long");
 												value = DateUtils
 														.fromUnixTime((long) getMsdResult);
 											}
 										}
 
-										logger.debug(String.format(
-												"%s invoked, value is %s",
-												getMethodName, value));
+										//logger.debug(String.format("%s invoked, value is %s",getMethodName, value));
 
-										// logger.debug("length" +
+										// //logger.debug("length" +
 										// x.getParameterTypes().length);
-										// logger.debug(x.getParameterTypes()[0].equals(BigDecimal.class));
+										// //logger.debug(x.getParameterTypes()[0].equals(BigDecimal.class));
 										beanSetMethod.invoke(bean, value);
-										logger.debug(String
-												.format("field %s set correct, valeu is %s",
-														mMethod,
-														value.toString()));
+										//logger.debug(String.format("field %s set correct, valeu is %s",mMethod,value.toString()));
 									} else {
-										logger.info(String.format(
-												"field %s is null!", mMethod));
+										//logger.info(String.format("field %s is null!", mMethod));
 									}
 								} else {
-									logger.debug(String
-											.format("getMethodName :%s is not present in dest",
-													getMethodName));
+									//logger.debug(String.format("getMethodName :%s is not present in dest",getMethodName));
 								}
 							} catch (Exception e) {
-								logger.debug(String.format(
-										"method %s error: %s", mMethod,
-										e.getMessage()));
-								logger.error("failed", e);
+								//logger.debug(String.format("method %s error: %s", mMethod,e.getMessage()));
+								//logger.error("failed", e);
 								e.printStackTrace();
 								flag.setFalse();
 							}
 
-							logger.debug("\n");
+							//logger.debug("\n");
 						});
 		return flag.getValue();
 		// return false;
@@ -285,35 +257,33 @@ public class ClassDeepCopy {
 		MutableBoolean flag = new MutableBoolean(true);
 
 		if (dest instanceof MessageOrBuilder) {
-			logger.info("dest is message builder");
+			//logger.info("dest is message builder");
 		} else if (source instanceof MessageOrBuilder) {
-			logger.info("source is message builder");
+			//logger.info("source is message builder");
 		} else {
-			logger.info("neither is message builder");
+			//logger.info("neither is message builder");
 		}
 		// loop methods witch starts with "get"
 		Arrays.stream(c1.getDeclaredMethods())
 				.filter(x -> x.getName().startsWith("get"))
 				.forEach(x -> {
 					String getMsgName = x.getName();
-					logger.debug(String.format("getMsdName:%s", getMsgName));
+					//logger.debug(String.format("getMsdName:%s", getMsgName));
 
 					// if method included in exceptions, ignoring it.
 						String mMethod = getMsgName.substring(3);
-						logger.debug(String.format("field Name:%s", mMethod));
+						//logger.debug(String.format("field Name:%s", mMethod));
 						if (Arrays.stream(exceptions).anyMatch(
 								y -> y.toLowerCase().equals(
 										mMethod.toLowerCase()))) {
-							logger.info(String.format(
-									"Field %s is aborted..\n", mMethod));
+							//logger.info(String.format("Field %s is aborted..\n", mMethod));
 							return;
 						}
 
 						// init set method, it's tail must the same as get
 						// method.
 						String setMsgName = "set" + mMethod;
-						logger.debug(String
-								.format("setMsgName :%s", setMsgName));
+						//logger.debug(String.format("setMsgName :%s", setMsgName));
 
 						Class<?> type;
 						if (dest instanceof MessageOrBuilder) {
@@ -328,18 +298,18 @@ public class ClassDeepCopy {
 							Object value = x.invoke(source);
 							if (value != null)
 								m.invoke(dest, value);
-							else
-								logger.debug(String.format("%s is null!",
-										mMethod));
+							else{
+								//logger.debug(String.format("%s is null!",mMethod));
+							}
+							
 						} catch (Exception e) {
-							logger.debug(String.format("method %s error: %s",
-									mMethod, e.getMessage()));
-							logger.error("failed", e);
+							//logger.debug(String.format("method %s error: %s",mMethod, e.getMessage()));
+							//logger.error("failed", e);
 							e.printStackTrace();
 							flag.setFalse();
 						}
 
-						logger.debug("\n");
+						//logger.debug("\n");
 					});
 		return flag.getValue();
 		// return false;
