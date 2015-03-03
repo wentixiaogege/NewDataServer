@@ -86,7 +86,7 @@ public class DataAccess {
 
 	}
 	public  static <T> List<T> HibernateSearchOperation(String get) {
-		logger.debug("get data begin.."+System.nanoTime());
+//		logger.debug("get data begin.."+System.nanoTime());
 		logger.info("get data begin.."+System.nanoTime());
 		List<T> list = null;
 		try {

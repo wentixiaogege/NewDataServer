@@ -8,6 +8,7 @@ import antlr.collections.List;
 
 import com.itu.DAO.DataAccess;
 import com.itu.action.CommonEnum.OpterationType;
+import com.itu.action.CommonEnum.ResultType;
 import com.itu.action.LocalServerSmartMeterDataActionProtos.LocalServerSmartMeterDataAction;
 import com.itu.action.LocalServerSmartMeterDataRecordProtos.LocalServerSmartMeterDataRecord;
 import com.itu.action.ResultsProtos.Result;
@@ -50,7 +51,8 @@ public class LocalServerAddLogic extends
 					logger.debug("copying ...");
 				} else {
 					logger.debug("copy error");
-					resultbuilder.setRes("false");
+					resultbuilder.setRes(ResultType.FALSE);
+					//resultbuilder.setRes("false");
 					resultbuilder.setErrMsg("internal copy error");
 				}
 				hibernatesmdatalist.add(bean);
@@ -74,19 +76,19 @@ public class LocalServerAddLogic extends
 			logger.debug("after setting here");
 
 			if (DataAccess.addOperation(hibernatesmdatalist)) {
-				resultbuilder.setRes("true");
+				resultbuilder.setRes(ResultType.TRUE);
 				logger.debug("add new data");
 			} else {
 				logger.debug("add new data error");
 				resultbuilder.setErrMsg("add new data error");
-				resultbuilder.setRes("false");
+				resultbuilder.setRes(ResultType.FALSE);
 			}
 			System.out.println("after adding here");
 			logger.debug("add " + index + "sm records to database");
 
 			return resultbuilder.build();
 		}
-		resultbuilder.setRes("false");
+		resultbuilder.setRes(ResultType.FALSE);
 		resultbuilder.setErrMsg("checking t.getOperation().equals(add) error");
 		return resultbuilder.build();
 	}

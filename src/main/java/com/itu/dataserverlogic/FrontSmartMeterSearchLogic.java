@@ -139,14 +139,14 @@ public class FrontSmartMeterSearchLogic
 			Builder smdatarecords) {
 
 		for (SmartMeterData hibernatesmdata : list) {
-			logger.info(String.format(
-					"localserver getting a new data energey is :%s",
-					hibernatesmdata.getEnergy()));
+//			logger.info(String.format(
+//					"localserver getting a new data energey is :%s",
+//					hibernatesmdata.getEnergy()));
 			com.itu.action.FrontServerSmartMeterDataRecordProtos.FrontServerSmartMeterDataRecord.Builder smdata = com.itu.action.FrontServerSmartMeterDataRecordProtos.FrontServerSmartMeterDataRecord.newBuilder();
 			if (ClassDeepCopy.CopyBeanToProto(hibernatesmdata, smdata)) {
 
 				smdatarecords.addRecords(smdata);
-				logger.debug("copy hibernate to proto right");
+//				logger.debug("copy hibernate to proto right");
 
 			} else {
 				logger.debug("copy error");
