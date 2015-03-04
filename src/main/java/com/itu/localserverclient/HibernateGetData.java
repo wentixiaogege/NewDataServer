@@ -1,6 +1,7 @@
 package com.itu.localserverclient;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
+import com.itu.DAO.DataAccess;
 import com.itu.bean.SmartMeterData;
 import com.itu.util.HibernateUtil;
 
@@ -23,14 +25,85 @@ public class HibernateGetData {
 	     /**
 	     * @param args
 	     */
-	    public static void main(String[] args) {
+	    @SuppressWarnings("null")
+		public static void main(String[] args) {
 	         // TODO Auto-generated method stub
 	         Session session = factory.openSession();
 	
 	         
 	         Transaction tran = session.beginTransaction();
-	         
-				Date endDate = new Date();
+	         Date endDate = new Date();
+
+				//创建基于当前时间的日历对象
+
+				Calendar cl = Calendar.getInstance();
+
+				cl.setTime(endDate);
+				int seconds = 360000;
+				cl.add(Calendar.SECOND, -seconds);
+				Date startDate = cl.getTime();
+				
+				SimpleDateFormat dd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+
+				//格式化开始日期和结束日期
+
+				String start = dd.format(startDate);
+				String end = dd.format(endDate);
+				
+				System.out.println("00000"+start);
+				System.out.println("11111"+end);
+				
+		         List<Integer> sm_ids = new ArrayList<Integer>();
+		         String idsString = "";
+		         sm_ids.add(0,0);
+		         sm_ids.add(1,1);
+		         sm_ids.add(2,2);
+		         for(int i =1 ; i< sm_ids.size();i++)
+		 			idsString += "or "+ sm_ids.get(i).toString();
+		         System.out.println(sm_ids.get(0));
+		 		
+		 		 String hql = ("from SmartMeterData smtable where smtable.timestamp > '"
+		 				+ start
+		 				+ "' and smtable.timestamp <= '"
+		 				+ end + "' and  smtable.smIndex ='"+sm_ids.get(1)+"'");// need test
+		 	    List<SmartMeterData> result = session.createQuery(hql).list();
+
+		 	   for(SmartMeterData a : result){
+	        	     System.out.print("------------->");
+	                 System.out.println(a.getId());
+	         }
+				List<SmartMeterData> newlist =new ArrayList<SmartMeterData>();
+				/**
+				 * 
+				 * 
+				 * get the interval data from here
+				*/
+				//Calendar cl1 = Calendar.getInstance();			
+				cl.setTime(result.get(0).getTimestamp());
+				newlist.add(result.get(0));
+				cl.add(Calendar.SECOND, 3600);
+				System.out.println(cl.getTime());
+				for(int i1 = 0 ;i1<result.size();i1++)
+				{
+					SmartMeterData oneData  = result.get(i1);
+					
+					if(oneData.getTimestamp().after(cl.getTime()))
+					{
+						cl.add(Calendar.SECOND, 3600);
+						newlist.add(oneData);
+					}
+						
+					
+					
+					
+				}
+				
+		         for(SmartMeterData a : newlist){
+		        	 System.out.print("++++++++++++++++++++++++++++++++++++> "); 
+		                 System.out.println(a.getId());
+		         }
+		         System.out.println("++++++++++++++++++++++++++++++++++++> "+result.size()+"-----------"+newlist.size());
+			/*	Date endDate = new Date();
 
 				//创建基于当前时间的日历对象
 
@@ -86,16 +159,16 @@ public class HibernateGetData {
 //	         criteria.add(Restrictions.sqlRestriction(sqlWhere));
 //	         List<SmartMeterData> result = criteria.list();
 	         
-	         /*@SuppressWarnings("unchecked")
+	         @SuppressWarnings("unchecked")
 			 List<SmartMeterData> result = (List<SmartMeterData>)session.createSQLQuery(hqlString).list();
 
-	         result.forEach(x->{System.out.println(x.getId());});*/
+	         result.forEach(x->{System.out.println(x.getId());});
 
 	         for(SmartMeterData a : result){
 	        	     System.out.print("--------》");
 	                 System.out.println(a.getId());
 	         }
-	         
+	         */
 	         
 	 //        采用QBC的方式。
 	        /* Date begin = java.sql.Date.valueOf("2015-2-11");

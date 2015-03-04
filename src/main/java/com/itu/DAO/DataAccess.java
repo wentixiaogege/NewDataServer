@@ -92,7 +92,7 @@ public class DataAccess {
 		try {
 			s = factory.openSession();
 			Query query = s.createQuery(get);//.setTimestamp("beginTime", begin).setTimestamp("endTime", end)
-			query.setMaxResults(100);
+			//query.setMaxResults(100);
 			list = query.list();
 		} catch (Exception e) {
 			logger.debug("failed", e);

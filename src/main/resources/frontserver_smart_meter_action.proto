@@ -5,15 +5,20 @@ import "src/main/resources/common_enum.proto";
 option java_package = "com.itu.action";
 option java_outer_classname = "FrontServerSmartMeterDataActionProtos";
 
+message SmartMeterRecords {
+	optional int32 sm_id = 1;
+	repeated FrontServerSmartMeterDataRecord records = 2;
+}
+
 message FrontServerSmartMeterDataAction {
 	repeated int32 ids = 1;
-	repeated string sm_ieee_address = 2;
+	repeated int32 sm_ids = 2;
 	optional int64 start_time = 3;
 	optional int64 end_time = 4;
 	optional int32 time_before_current =5;
 	optional OpterationType operation = 6;
-	repeated FrontServerSmartMeterDataRecord records = 7;
+	repeated SmartMeterRecords records = 7;
 	optional string status = 8;
 	optional string err_msg = 9;
-	
+	optional int32 interval = 10;
 }

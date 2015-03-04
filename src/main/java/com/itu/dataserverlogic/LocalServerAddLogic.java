@@ -39,7 +39,6 @@ public class LocalServerAddLogic extends
 		if (t.getOperation().equals(OpterationType.ADD)) {
 			System.out.println("cominghere");
 			int count = t.getRecordsCount();
-			int index = 0;
 
 			java.util.List<SmartMeterData> hibernatesmdatalist = new ArrayList<>();
 			System.out.println(count);
@@ -84,7 +83,7 @@ public class LocalServerAddLogic extends
 				resultbuilder.setRes(ResultType.FALSE);
 			}
 			System.out.println("after adding here");
-			logger.debug("add " + index + "sm records to database");
+			logger.debug("add " + count + "sm records to database");
 
 			return resultbuilder.build();
 		}

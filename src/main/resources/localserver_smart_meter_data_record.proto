@@ -7,7 +7,7 @@ message LocalServerSmartMeterDataRecord {
   optional int32 id = 1;
   optional int64 timestamp = 2;
   optional int32 sm_index = 3;
-  optional string ieeeAddress = 4;
+  optional string sm_ieee_address = 4;
   optional int32 rms_V1 = 5;
   optional float rms_I1 = 6;
   optional int32 theta_1 = 7;
