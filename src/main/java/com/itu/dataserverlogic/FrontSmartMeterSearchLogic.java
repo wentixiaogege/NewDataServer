@@ -1,30 +1,23 @@
 package com.itu.dataserverlogic;
+/**
+ *   Authour jack
+ */
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-
-
-
 import com.itu.DAO.DataAccess;
 import com.itu.action.CommonEnum.OpterationType;
 import com.itu.action.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction;
-import com.itu.action.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction.Builder;
+//import com.itu.action.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction.Builder;
 import com.itu.bean.SmartMeterData;
 import com.itu.util.ClassDeepCopy;
 import com.itu.util.DateUtils;
 import com.itu.util.Log4jUtil;
 
-public class FrontSmartMeterSearchLogic
-		extends
-		CommonProtoLogic<FrontServerSmartMeterDataAction, FrontServerSmartMeterDataAction> {
-
-	// static Logger logger = Log4jUtil.getLogger(FrontSmartMeterLogic.class);
-
-	
+public class FrontSmartMeterSearchLogic extends CommonProtoLogic<FrontServerSmartMeterDataAction, FrontServerSmartMeterDataAction> {
 
 	@Override
 	public FrontServerSmartMeterDataAction executeAction(
@@ -42,7 +35,7 @@ public class FrontSmartMeterSearchLogic
 		if (t.getOperation().equals(OpterationType.SEARCH))//
 		{
 			/**
-			 * the sartmeter time search parameters
+			 * the smartmeter time search parameters
 			 */
 			time_before_current = t.getTimeBeforeCurrent();
 			starttime =  t.getStartTime();
@@ -52,63 +45,30 @@ public class FrontSmartMeterSearchLogic
 			logger.debug(time_before_current + starttime + endtime+intervals);
 			logger.debug("t.getSmIdsCount()");
 			logger.debug(t.getSmIdsCount());
-			//logger.debug(smids.get(0));
-			
 			
 			if ((0 != starttime) && (0 != endtime)) {
 				
 				logger.debug("(0 != starttime) && (0 != endtime)");
 				logger.debug("search all the smartmeters with start time");
-				smdataaction = getDataFromDatabase(smids,smdataaction,starttime,endtime,intervals);
-			/*	if (0 != t.getIdsCount()) {
-					*//**
-					 * search dedicated the smartmeters
-					 *//*
-					logger.debug("search dedicated the smartmeters with starttime");
-					smdataaction = getDataFromDatabase(smids,smdataaction, starttime,endtime,intervals);
-
-				} else {
-					*//**
-					 * search all the smartmeters
-					 *//*
-					logger.debug("search all the smartmeters with start time");
-					smdataaction = getDataFromDatabase(smids,smdataaction,starttime,endtime,intervals);
-
-				}*/
+				getDataFromDatabase(smids,smdataaction,starttime,endtime,intervals);
 
 			} else {
 				logger.debug("(0 == starttime) || (0 == endtime)");
 				logger.debug("search dedicated the smartmeters without starttime");
 				if (0 == time_before_current)
 					time_before_current = 3600;// default 1 hour data;
-				smdataaction = getDataFromDatabase(smids,smdataaction,time_before_current,intervals);
-				/*if (0 != t.getIdsCount()) {
-					*//**
-					 * search dedicated the smartmeters
-					 *//*
-					logger.debug("search dedicated the smartmeters without starttime");
-					if (0 == time_before_current)
-						time_before_current = 3600;// default 1 hour data;
-					smdataaction = getDataFromDatabase(smids,smdataaction,time_before_current,intervals);
-
-				} else {
-					*//**
-					 * search all the smartmeters
-					 *//*
-					
-					logger.debug("search all the smartmeters without starttime");
-					if (0 == time_before_current)
-						time_before_current = 3600;// default 5 minutes data;
-
-					smdataaction = getDataFromDatabase(smids,smdataaction,time_before_current,intervals);
-
-				}*/
+				getDataFromDatabase(smids,smdataaction,time_before_current,intervals);
 			}
-			//smactionbuilder.addRecordsBuilder(smdataaction.build());
 		}
 		return smdataaction.build();
 	}
-
+/**
+ * 
+ * @param sm_id
+ * @param seconds
+ * @param parameters
+ * @return
+ */
 	private String setSearchHQL(Integer sm_id ,int seconds,String... parameters) {
 		
 		Calendar cl = Calendar.getInstance();
@@ -119,8 +79,6 @@ public class FrontSmartMeterSearchLogic
 		Date startDate = cl.getTime();
 		
 		SimpleDateFormat dd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
-		//格式化开始日期和结束日期
 
 		String start = dd.format(startDate);
 		String end = dd.format(endDate);
@@ -133,6 +91,14 @@ public class FrontSmartMeterSearchLogic
 				+ end + "' and smtable.smIndex = '"+sm_id+"'");
 		return hql;
 		}
+/**
+	 * 
+	 * @param sm_id
+	 * @param starttime
+	 * @param endtime
+	 * @param parameters
+	 * @return
+	 */
     private String setSearchHQL(Integer sm_id ,long starttime,long endtime,String... parameters) {
 		
         	
@@ -148,7 +114,12 @@ public class FrontSmartMeterSearchLogic
 				+ endtimeDate + "' and smtable.smIndex = '"+sm_id+"'");// need test
 		return hql;
 		}
-	
+	/**
+	 * 
+	 * @param list
+	 * @param onesmdatarecords
+	 * @return
+	 */
 	private boolean hibernateListtoProto(List<SmartMeterData> list,
 			com.itu.action.FrontServerSmartMeterDataActionProtos.SmartMeterRecords.Builder onesmdatarecords) {
 
@@ -166,10 +137,20 @@ public class FrontSmartMeterSearchLogic
 		}
 		return true;
 	}
+	/**
+	 * 
+	 * @param sm_ids
+	 * @param smactionbuilder
+	 * @param starttime
+	 * @param endtime
+	 * @param intervals
+	 * @return
+	 */
 	// fetch data from table and return to Builder
-	private Builder getDataFromDatabase(List<Integer> sm_ids ,FrontServerSmartMeterDataAction.Builder smactionbuilder,long starttime,long endtime,int intervals) {
+	private void getDataFromDatabase(List<Integer> sm_ids ,FrontServerSmartMeterDataAction.Builder smactionbuilder,long starttime,long endtime,int intervals) {
 		    logger.debug("////////////////////////");
 			logger.debug(intervals);
+			Calendar cl = Calendar.getInstance();	
 			//every sm_id  access once databases
 			for(int i =0 ; i< sm_ids.size();i++){
 				com.itu.action.FrontServerSmartMeterDataActionProtos.SmartMeterRecords.Builder onesmdatarecords = com.itu.action.FrontServerSmartMeterDataActionProtos.SmartMeterRecords.newBuilder();
@@ -184,7 +165,6 @@ public class FrontSmartMeterSearchLogic
 					 * 
 					 * get the interval data from here
 					*/
-					Calendar cl = Calendar.getInstance();			
 					cl.setTime(list.get(0).getTimestamp());
 					newlist.add(list.get(0));
 					cl.add(Calendar.SECOND, intervals);
@@ -204,59 +184,45 @@ public class FrontSmartMeterSearchLogic
 					logger.debug("hibernateListtoProtoget data begin.."+System.nanoTime());
 					if (hibernateListtoProto(newlist, onesmdatarecords))
 						onesmdatarecords.setSmId(i);
-//						smactionbuilder.setStatus("true");
 					else{
 						smactionbuilder.setErrMsg("copy error");
 						smactionbuilder.setStatus("false");
 					}
 					logger.debug("hibernateListtoProtoget data end.."+System.nanoTime());
 					smactionbuilder.addRecords(onesmdatarecords);
-					//
 				}
 				else {
 					logger.debug(intervals+" zero");
 					logger.debug("hibernateListtoProtoget data begin.."+System.nanoTime());
 					if (hibernateListtoProto(list, onesmdatarecords))
 						onesmdatarecords.setSmId(i);
-//						smactionbuilder.setStatus("true");
 					else{
 						smactionbuilder.setErrMsg("copy error");
 						smactionbuilder.setStatus("false");
 					}
 					logger.debug("hibernateListtoProtoget data end.."+System.nanoTime());
 					smactionbuilder.addRecords(onesmdatarecords);
-					//
 				}	
-				//
-				
 			}
-		
-			return smactionbuilder;
-			/*smactionbuilder.addRecords(value)
-			List<SmartMeterData> list = DataAccess.HibernateSearchOperation(setSearchHQL(sm_ids,starttime,endtime));
-			Builder smdatarecords = FrontServerSmartMeterDataAction.newBuilder();
-			
-			logger.debug("hibernateListtoProtoget data begin.."+System.nanoTime());
-			if (hibernateListtoProto(list, smdatarecords))
-				smactionbuilder.setStatus("true");
-			else {
-				smactionbuilder.setErrMsg("copy error");
-				smactionbuilder.setStatus("false");
-			}
-			logger.debug("hibernateListtoProtoget data end.."+System.nanoTime());*/
-			
-
+//			return smactionbuilder;
 		}
-	private Builder getDataFromDatabase(List<Integer> sm_ids ,FrontServerSmartMeterDataAction.Builder smactionbuilder,int seconds,int intervals) {
+	/**
+	 * 
+	 * @param sm_ids
+	 * @param smactionbuilder
+	 * @param seconds
+	 * @param intervals
+	 * @return
+	 */
+	private void getDataFromDatabase(List<Integer> sm_ids ,FrontServerSmartMeterDataAction.Builder smactionbuilder,int seconds,int intervals) {
 		
-		  logger.debug("////////////////////////");
-			logger.debug(intervals);
+		logger.debug("////////////////////////");
+		logger.debug(intervals);
 		//every sm_id  access once databases
 		for(int i =0 ; i< sm_ids.size();i++){
 			com.itu.action.FrontServerSmartMeterDataActionProtos.SmartMeterRecords.Builder onesmdatarecords = com.itu.action.FrontServerSmartMeterDataActionProtos.SmartMeterRecords.newBuilder();
 
 			//set the search HQL
-			//already sorted by the means of timestamp
 			List<SmartMeterData> list = DataAccess.HibernateSearchOperation(setSearchHQL(sm_ids.get(i),seconds));
 			if(intervals >0) 
 			{
@@ -292,7 +258,6 @@ public class FrontSmartMeterSearchLogic
 				logger.debug("hibernateListtoProtoget data begin.."+System.nanoTime());
 				if (hibernateListtoProto(newlist, onesmdatarecords))
 					onesmdatarecords.setSmId(i);
-	//				smactionbuilder.setStatus("true");
 				else{
 					smactionbuilder.setErrMsg("copy error");
 					smactionbuilder.setStatus("false");
@@ -304,7 +269,6 @@ public class FrontSmartMeterSearchLogic
 				logger.debug("hibernateListtoProtoget data begin.."+System.nanoTime());
 				if (hibernateListtoProto(list, onesmdatarecords))
 					onesmdatarecords.setSmId(i);
-	//				smactionbuilder.setStatus("true");
 				else{
 					smactionbuilder.setErrMsg("copy error");
 					smactionbuilder.setStatus("false");
@@ -312,28 +276,9 @@ public class FrontSmartMeterSearchLogic
 				logger.debug("hibernateListtoProtoget data end.."+System.nanoTime());
 				smactionbuilder.addRecords(onesmdatarecords);
 			}
-			//
 		}
-	
-		return smactionbuilder;
-		/*smactionbuilder.addRecords(value)
-		List<SmartMeterData> list = DataAccess.HibernateSearchOperation(setSearchHQL(sm_ids,starttime,endtime));
-		Builder smdatarecords = FrontServerSmartMeterDataAction.newBuilder();
-		
-		logger.debug("hibernateListtoProtoget data begin.."+System.nanoTime());
-		if (hibernateListtoProto(list, smdatarecords))
-			smactionbuilder.setStatus("true");
-		else {
-			smactionbuilder.setErrMsg("copy error");
-			smactionbuilder.setStatus("false");
-		}
-		logger.debug("hibernateListtoProtoget data end.."+System.nanoTime());*/
-		
-
+//		return smactionbuilder;
 	}
-		
-	
-
 		@Override
 		public FrontServerSmartMeterDataAction executeAction() {
 			// TODO Auto-generated method stub
