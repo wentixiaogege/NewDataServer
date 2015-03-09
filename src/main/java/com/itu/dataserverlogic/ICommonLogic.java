@@ -1,7 +1,8 @@
 package com.itu.dataserverlogic;
 
-import com.itu.util.Log4jUtil;
 import org.apache.log4j.Logger;
+
+import edu.itu.util.Log4jUtil;
 
 public abstract class ICommonLogic<T, V> {
 	Logger logger = Log4jUtil.getLogger(ICommonLogic.class);

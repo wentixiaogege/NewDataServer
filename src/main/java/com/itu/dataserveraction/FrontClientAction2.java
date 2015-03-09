@@ -2,7 +2,7 @@ package com.itu.dataserveraction;
 
 import javax.ws.rs.Path;
 
-import com.itu.action.CloudCommandProtos.CloudCommand;
+import edu.itu.proto.CloudCommandProtos.CloudCommand;
 import com.itu.dataserverlogic.FrontClientLogic2;
 
 @Path("/frontclientaction2")
