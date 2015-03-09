@@ -6,8 +6,6 @@ import org.apache.log4j.Logger;
 
 import com.itu.DAO.DataAccess;
 import com.itu.bean.SmartMeterData;
-import com.itu.util.ClassDeepCopy;
-import com.itu.util.Log4jUtil;
 
 import edu.itu.proto.CommonEnum.OpterationType;
 import edu.itu.proto.CommonEnum.ResultType;
@@ -15,6 +13,8 @@ import edu.itu.proto.LocalServerSmartMeterDataActionProtos.LocalServerSmartMeter
 import edu.itu.proto.LocalServerSmartMeterDataRecordProtos.LocalServerSmartMeterDataRecord;
 import edu.itu.proto.ResultsProtos;
 import edu.itu.proto.ResultsProtos.Result;
+import edu.itu.util.ClassDeepCopy;
+import edu.itu.util.Log4jUtil;
 
 public class LocalServerAddLogic extends
 		CommonProtoLogic<LocalServerSmartMeterDataAction, Result> {

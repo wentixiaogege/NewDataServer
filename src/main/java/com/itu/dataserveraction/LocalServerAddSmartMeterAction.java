@@ -5,12 +5,11 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.log4j.Logger;
+import com.itu.dataserverlogic.LocalServerAddLogic;
 
 import edu.itu.proto.LocalServerSmartMeterDataActionProtos.LocalServerSmartMeterDataAction;
 import edu.itu.proto.ResultsProtos.Result;
-import com.itu.dataserverlogic.LocalServerAddLogic;
-import com.itu.util.Log4jUtil;
+import edu.itu.util.Log4jUtil;
 
 @Path("/LocalServerAddSmartMeterData")
 public class LocalServerAddSmartMeterAction extends CommonProtoAction<LocalServerSmartMeterDataAction,Result>{

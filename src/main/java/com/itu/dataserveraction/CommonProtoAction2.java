@@ -10,8 +10,9 @@ import org.apache.log4j.Logger;
 
 import com.google.protobuf.Message;
 import com.itu.dataserverlogic.CommonProtoLogic2;
-import com.itu.util.ITUMediaType;
-import com.itu.util.Log4jUtil;
+
+import edu.itu.util.ItuMediaType;
+import edu.itu.util.Log4jUtil;
 
 public abstract class CommonProtoAction2<T extends Message> extends CommonAction<T, String> {
 	Logger logger = Log4jUtil.getLogger(CommonProtoAction2.class);
@@ -36,7 +37,7 @@ public abstract class CommonProtoAction2<T extends Message> extends CommonAction
 	 * @return
 	 */
 	@GET
-	@Consumes(ITUMediaType.APPLICATION_PROTOBUF)
+	@Consumes(ItuMediaType.APPLICATION_PROTOBUF)
 	public Response doGet(T t) {
 		logger.debug("do get is starting");
 		String result = cmpLogic.executeAction(t);
@@ -51,14 +52,14 @@ public abstract class CommonProtoAction2<T extends Message> extends CommonAction
 	 */
 	@GET
 	@Path("return")
-	@Consumes(ITUMediaType.APPLICATION_PROTOBUF)
+	@Consumes(ItuMediaType.APPLICATION_PROTOBUF)
 	public Response doGetWithReturn(T t) {
 		T result = cmpLogic.executeActionBuffer(t);
 		return ResponseResult(result);
 	}
 
 	@POST
-	@Consumes(ITUMediaType.APPLICATION_PROTOBUF)
+	@Consumes(ItuMediaType.APPLICATION_PROTOBUF)
 	public Response doPost(T t) {
 		String result = cmpLogic.executeAction(t);
 		logger.debug("result is " + result);
@@ -73,7 +74,7 @@ public abstract class CommonProtoAction2<T extends Message> extends CommonAction
 	 */
 	@POST
 	@Path("return")
-	@Consumes(ITUMediaType.APPLICATION_PROTOBUF)
+	@Consumes(ItuMediaType.APPLICATION_PROTOBUF)
 	public Response doPostWithReturn(T t) {
 		T result = cmpLogic.executeActionBuffer(t);
 		return ResponseResult(result);

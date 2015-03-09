@@ -1,6 +1,5 @@
 package com.itu.DAO;
 
-import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -10,7 +9,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 import com.itu.util.HibernateUtil;
-import com.itu.util.Log4jUtil;
+
+import edu.itu.util.Log4jUtil;
 
 public class DataAccess {
 	static Logger logger = Log4jUtil.getLogger(DataAccess.class);

@@ -1,21 +1,10 @@
 package com.itu.dataserveraction;
 
-import java.util.List;
-import java.util.Map.Entry;
-
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.MultivaluedMap;
 import javax.ws.rs.core.Response;
-import javax.ws.rs.core.UriInfo;
 
 import org.apache.log4j.Logger;
 
-import com.itu.util.Log4jUtil;
+import edu.itu.util.Log4jUtil;
 
 public abstract class CommonAction<T, V> {
 	Logger logger = Log4jUtil.getLogger(CommonAction.class);

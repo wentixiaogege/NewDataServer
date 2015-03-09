@@ -10,8 +10,8 @@
  <dependencies>
 		<dependency>
 			<groupId>edu.itu</groupId>
-			<artifactId>Common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<artifactId>itucommon</artifactId>
+			<version>0.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
