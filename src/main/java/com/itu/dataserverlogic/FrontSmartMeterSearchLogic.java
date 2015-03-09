@@ -20,6 +20,7 @@ import edu.itu.proto.CommonEnum.OpterationType;
 import edu.itu.proto.FrontServerSmartMeterDataActionProtos;
 import edu.itu.proto.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction;
 import edu.itu.proto.FrontServerSmartMeterDataRecordProtos;
+import edu.itu.util.ItuStaticUtil;
 
 public class FrontSmartMeterSearchLogic extends CommonProtoLogic<FrontServerSmartMeterDataAction, FrontServerSmartMeterDataAction> {
 
@@ -82,7 +83,7 @@ public class FrontSmartMeterSearchLogic extends CommonProtoLogic<FrontServerSmar
 		cl.add(Calendar.SECOND, -seconds);
 		Date startDate = cl.getTime();
 		
-		SimpleDateFormat dd = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat dd = new SimpleDateFormat(ItuStaticUtil.FOMAT_DATE);
 
 		String start = dd.format(startDate);
 		String end = dd.format(endDate);
