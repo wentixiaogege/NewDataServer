@@ -4,23 +4,23 @@ import java.util.ArrayList;
 
 import org.apache.log4j.Logger;
 
-import antlr.collections.List;
-
 import com.itu.DAO.DataAccess;
-import com.itu.action.CommonEnum.OpterationType;
-import com.itu.action.CommonEnum.ResultType;
-import com.itu.action.LocalServerSmartMeterDataActionProtos.LocalServerSmartMeterDataAction;
-import com.itu.action.LocalServerSmartMeterDataRecordProtos.LocalServerSmartMeterDataRecord;
-import com.itu.action.ResultsProtos.Result;
 import com.itu.bean.SmartMeterData;
 import com.itu.util.ClassDeepCopy;
 import com.itu.util.Log4jUtil;
+
+import edu.itu.proto.CommonEnum.OpterationType;
+import edu.itu.proto.CommonEnum.ResultType;
+import edu.itu.proto.LocalServerSmartMeterDataActionProtos.LocalServerSmartMeterDataAction;
+import edu.itu.proto.LocalServerSmartMeterDataRecordProtos.LocalServerSmartMeterDataRecord;
+import edu.itu.proto.ResultsProtos;
+import edu.itu.proto.ResultsProtos.Result;
 
 public class LocalServerAddLogic extends
 		CommonProtoLogic<LocalServerSmartMeterDataAction, Result> {
 
 	Logger logger = Log4jUtil.getLogger(LocalServerAddLogic.class);
-	com.itu.action.ResultsProtos.Result.Builder resultbuilder = com.itu.action.ResultsProtos.Result
+	ResultsProtos.Result.Builder resultbuilder = ResultsProtos.Result
 			.newBuilder();
 
 	@Override

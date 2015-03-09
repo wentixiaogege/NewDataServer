@@ -8,14 +8,18 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+
 import com.itu.DAO.DataAccess;
-import com.itu.action.CommonEnum.OpterationType;
-import com.itu.action.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction;
 //import com.itu.action.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction.Builder;
 import com.itu.bean.SmartMeterData;
 import com.itu.util.ClassDeepCopy;
 import com.itu.util.DateUtils;
 import com.itu.util.Log4jUtil;
+
+import edu.itu.proto.CommonEnum.OpterationType;
+import edu.itu.proto.FrontServerSmartMeterDataActionProtos;
+import edu.itu.proto.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction;
+import edu.itu.proto.FrontServerSmartMeterDataRecordProtos;
 
 public class FrontSmartMeterSearchLogic extends CommonProtoLogic<FrontServerSmartMeterDataAction, FrontServerSmartMeterDataAction> {
 
@@ -121,11 +125,11 @@ public class FrontSmartMeterSearchLogic extends CommonProtoLogic<FrontServerSmar
 	 * @return
 	 */
 	private boolean hibernateListtoProto(List<SmartMeterData> list,
-			com.itu.action.FrontServerSmartMeterDataActionProtos.SmartMeterRecords.Builder onesmdatarecords) {
+			FrontServerSmartMeterDataActionProtos.SmartMeterRecords.Builder onesmdatarecords) {
 
 		for (SmartMeterData hibernatesmdata : list) {
 
-			com.itu.action.FrontServerSmartMeterDataRecordProtos.FrontServerSmartMeterDataRecord.Builder smdata = com.itu.action.FrontServerSmartMeterDataRecordProtos.FrontServerSmartMeterDataRecord.newBuilder();
+			FrontServerSmartMeterDataRecordProtos.FrontServerSmartMeterDataRecord.Builder smdata = FrontServerSmartMeterDataRecordProtos.FrontServerSmartMeterDataRecord.newBuilder();
 			if (ClassDeepCopy.CopyBeanToProto(hibernatesmdata, smdata)) {
 
 				onesmdatarecords.addRecords(smdata);
@@ -153,7 +157,7 @@ public class FrontSmartMeterSearchLogic extends CommonProtoLogic<FrontServerSmar
 			Calendar cl = Calendar.getInstance();	
 			//every sm_id  access once databases
 			for(int i =0 ; i< sm_ids.size();i++){
-				com.itu.action.FrontServerSmartMeterDataActionProtos.SmartMeterRecords.Builder onesmdatarecords = com.itu.action.FrontServerSmartMeterDataActionProtos.SmartMeterRecords.newBuilder();
+				FrontServerSmartMeterDataActionProtos.SmartMeterRecords.Builder onesmdatarecords = FrontServerSmartMeterDataActionProtos.SmartMeterRecords.newBuilder();
 
 				//set the search HQL
 				List<SmartMeterData> list = DataAccess.HibernateSearchOperation(setSearchHQL(sm_ids.get(i),starttime,endtime));
@@ -220,7 +224,7 @@ public class FrontSmartMeterSearchLogic extends CommonProtoLogic<FrontServerSmar
 		logger.debug(intervals);
 		//every sm_id  access once databases
 		for(int i =0 ; i< sm_ids.size();i++){
-			com.itu.action.FrontServerSmartMeterDataActionProtos.SmartMeterRecords.Builder onesmdatarecords = com.itu.action.FrontServerSmartMeterDataActionProtos.SmartMeterRecords.newBuilder();
+			FrontServerSmartMeterDataActionProtos.SmartMeterRecords.Builder onesmdatarecords = FrontServerSmartMeterDataActionProtos.SmartMeterRecords.newBuilder();
 
 			//set the search HQL
 			List<SmartMeterData> list = DataAccess.HibernateSearchOperation(setSearchHQL(sm_ids.get(i),seconds));

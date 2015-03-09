@@ -7,8 +7,8 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
 
-import com.itu.action.LocalServerSmartMeterDataActionProtos.LocalServerSmartMeterDataAction;
-import com.itu.action.ResultsProtos.Result;
+import edu.itu.proto.LocalServerSmartMeterDataActionProtos.LocalServerSmartMeterDataAction;
+import edu.itu.proto.ResultsProtos.Result;
 import com.itu.dataserverlogic.LocalServerAddLogic;
 import com.itu.util.Log4jUtil;
 

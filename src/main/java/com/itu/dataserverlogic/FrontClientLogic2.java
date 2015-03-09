@@ -3,7 +3,7 @@ package com.itu.dataserverlogic;
 import org.apache.log4j.Logger;
 
 import com.itu.DAO.CloudCommandDao;
-import com.itu.action.CloudCommandProtos.CloudCommand;
+import edu.itu.proto.CloudCommandProtos.CloudCommand;
 import com.itu.util.ClassDeepCopy;
 import com.itu.util.Log4jUtil;
 

@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.apache.log4j.Logger;
 
-import com.itu.action.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction;
+import edu.itu.proto.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction;
 import com.itu.dataserverlogic.FrontSmartMeterSearchLogic;
 import com.itu.util.Log4jUtil;
 
