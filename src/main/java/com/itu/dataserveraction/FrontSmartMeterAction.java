@@ -5,11 +5,10 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.log4j.Logger;
+import com.itu.dataserverlogic.FrontSmartMeterSearchLogic;
 
 import edu.itu.proto.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction;
-import com.itu.dataserverlogic.FrontSmartMeterSearchLogic;
-import com.itu.util.Log4jUtil;
+import edu.itu.util.Log4jUtil;
 
 @Path("/FrontServerSmartMeterSearchAction")
 public class FrontSmartMeterAction extends CommonProtoAction<FrontServerSmartMeterDataAction,FrontServerSmartMeterDataAction> {

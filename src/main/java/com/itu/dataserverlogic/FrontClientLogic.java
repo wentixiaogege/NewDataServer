@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 import edu.itu.proto.CloudCmdActionProtos.CloudCmdAction;
 import edu.itu.proto.CloudCommandProtos.CloudCommand;
-import com.itu.util.Log4jUtil;
+import edu.itu.util.Log4jUtil;
 
 public class FrontClientLogic extends CommonProtoLogic<CloudCmdAction, CloudCommand> {
 

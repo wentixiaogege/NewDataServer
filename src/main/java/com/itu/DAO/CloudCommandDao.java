@@ -1,17 +1,14 @@
 package com.itu.DAO;
 
-import java.util.Date;
-
 import org.apache.log4j.Logger;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import com.itu.bean.CloudCommand;
 import com.itu.bean.Command;
 import com.itu.util.HibernateUtil;
-import com.itu.util.Log4jUtil;
+
+import edu.itu.util.Log4jUtil;
 
 public class CloudCommandDao {
 	static Logger logger = Log4jUtil.getLogger(CloudCommandDao.class);
