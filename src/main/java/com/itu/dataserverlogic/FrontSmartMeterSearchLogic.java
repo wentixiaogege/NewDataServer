@@ -10,6 +10,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import javassist.expr.NewArray;
+
 import com.itu.DAO.DataAccess;
 //import com.itu.action.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction.Builder;
 import com.itu.bean.SmartMeterData;
@@ -19,7 +21,6 @@ import edu.itu.proto.FrontServerSmartMeterDataActionProtos;
 import edu.itu.proto.FrontServerSmartMeterDataActionProtos.FrontServerSmartMeterDataAction;
 import edu.itu.proto.FrontServerSmartMeterDataRecordProtos;
 import edu.itu.util.ItuStaticUtil;
-
 import edu.itu.util.ClassDeepCopy;
 import edu.itu.util.DateUtils;
 import edu.itu.util.Log4jUtil;
@@ -83,17 +84,15 @@ public class FrontSmartMeterSearchLogic extends CommonProtoLogic<FrontServerSmar
 	private String setSearchHQL(Integer sm_id, int seconds, String... parameters) {
 
 		Calendar cl = Calendar.getInstance();
+		SimpleDateFormat dd = new SimpleDateFormat(ItuStaticUtil.FOMAT_DATE);
+
 		Date endDate = new Date();
 
 		cl.setTime(endDate);
 		cl.add(Calendar.SECOND, -seconds);
-		Date startDate = cl.getTime();
-
 		
-		SimpleDateFormat dd = new SimpleDateFormat(ItuStaticUtil.FOMAT_DATE);
 
-
-		String start = dd.format(startDate);
+		String start = dd.format(cl.getTime());
 		String end = dd.format(endDate);
 
 		logger.debug("00000" + start);
@@ -112,14 +111,18 @@ public class FrontSmartMeterSearchLogic extends CommonProtoLogic<FrontServerSmar
 	 */
 	private String setSearchHQL(Integer sm_id, long starttime, long endtime, String... parameters) {
 
+		String start ,end;
 		SimpleDateFormat dd = new SimpleDateFormat(ItuStaticUtil.FOMAT_DATE);
 
 	
-		Date starttimeDate = DateUtils.fromUnixTime(starttime);
-		Date endtimeDate = DateUtils.fromUnixTime(endtime);
-
-		String start = dd.format(starttimeDate);
-		String end = dd.format(endtimeDate);
+		if(0 ==endtime){
+			start = dd.format(DateUtils.fromUnixTime(starttime));
+			end = dd.format(new Date());// for now
+		}else {
+			start = dd.format(DateUtils.fromUnixTime(starttime));
+			end = dd.format(DateUtils.fromUnixTime(endtime));
+		}
+	   
 
 		logger.debug("long starttime, long endtime" + start);
 		logger.debug("long starttime, long endtime" + end);
